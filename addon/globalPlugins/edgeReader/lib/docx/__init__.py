@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING, Type
 from docx.api import Document
 
 if TYPE_CHECKING:
-    from docx.opc.part import Part
+	from docx.opc.part import Part
 
 __version__ = "1.2.0"
 
@@ -35,9 +35,9 @@ from docx.parts.styles import StylesPart
 
 
 def part_class_selector(content_type: str, reltype: str) -> Type[Part] | None:
-    if reltype == RT.IMAGE:
-        return ImagePart
-    return None
+	if reltype == RT.IMAGE:
+		return ImagePart
+	return None
 
 
 PartFactory.part_class_selector = part_class_selector
@@ -51,15 +51,15 @@ PartFactory.part_type_for[CT.WML_SETTINGS] = SettingsPart
 PartFactory.part_type_for[CT.WML_STYLES] = StylesPart
 
 del (
-    CT,
-    CorePropertiesPart,
-    CommentsPart,
-    DocumentPart,
-    FooterPart,
-    HeaderPart,
-    NumberingPart,
-    PartFactory,
-    SettingsPart,
-    StylesPart,
-    part_class_selector,
+	CT,
+	CorePropertiesPart,
+	CommentsPart,
+	DocumentPart,
+	FooterPart,
+	HeaderPart,
+	NumberingPart,
+	PartFactory,
+	SettingsPart,
+	StylesPart,
+	part_class_selector,
 )

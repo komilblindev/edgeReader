@@ -11,132 +11,132 @@ from typing import TYPE_CHECKING
 from docx.oxml.coreprops import CT_CoreProperties
 
 if TYPE_CHECKING:
-    from docx.oxml.coreprops import CT_CoreProperties
+	from docx.oxml.coreprops import CT_CoreProperties
 
 
 class CoreProperties:
-    """Corresponds to part named ``/docProps/core.xml``, containing the core document
-    properties for this document package."""
+	"""Corresponds to part named ``/docProps/core.xml``, containing the core document
+	properties for this document package."""
 
-    def __init__(self, element: CT_CoreProperties):
-        self._element = element
+	def __init__(self, element: CT_CoreProperties):
+		self._element = element
 
-    @property
-    def author(self):
-        return self._element.author_text
+	@property
+	def author(self):
+		return self._element.author_text
 
-    @author.setter
-    def author(self, value: str):
-        self._element.author_text = value
+	@author.setter
+	def author(self, value: str):
+		self._element.author_text = value
 
-    @property
-    def category(self):
-        return self._element.category_text
+	@property
+	def category(self):
+		return self._element.category_text
 
-    @category.setter
-    def category(self, value: str):
-        self._element.category_text = value
+	@category.setter
+	def category(self, value: str):
+		self._element.category_text = value
 
-    @property
-    def comments(self):
-        return self._element.comments_text
+	@property
+	def comments(self):
+		return self._element.comments_text
 
-    @comments.setter
-    def comments(self, value: str):
-        self._element.comments_text = value
+	@comments.setter
+	def comments(self, value: str):
+		self._element.comments_text = value
 
-    @property
-    def content_status(self):
-        return self._element.contentStatus_text
+	@property
+	def content_status(self):
+		return self._element.contentStatus_text
 
-    @content_status.setter
-    def content_status(self, value: str):
-        self._element.contentStatus_text = value
+	@content_status.setter
+	def content_status(self, value: str):
+		self._element.contentStatus_text = value
 
-    @property
-    def created(self):
-        return self._element.created_datetime
+	@property
+	def created(self):
+		return self._element.created_datetime
 
-    @created.setter
-    def created(self, value: dt.datetime):
-        self._element.created_datetime = value
+	@created.setter
+	def created(self, value: dt.datetime):
+		self._element.created_datetime = value
 
-    @property
-    def identifier(self):
-        return self._element.identifier_text
+	@property
+	def identifier(self):
+		return self._element.identifier_text
 
-    @identifier.setter
-    def identifier(self, value: str):
-        self._element.identifier_text = value
+	@identifier.setter
+	def identifier(self, value: str):
+		self._element.identifier_text = value
 
-    @property
-    def keywords(self):
-        return self._element.keywords_text
+	@property
+	def keywords(self):
+		return self._element.keywords_text
 
-    @keywords.setter
-    def keywords(self, value: str):
-        self._element.keywords_text = value
+	@keywords.setter
+	def keywords(self, value: str):
+		self._element.keywords_text = value
 
-    @property
-    def language(self):
-        return self._element.language_text
+	@property
+	def language(self):
+		return self._element.language_text
 
-    @language.setter
-    def language(self, value: str):
-        self._element.language_text = value
+	@language.setter
+	def language(self, value: str):
+		self._element.language_text = value
 
-    @property
-    def last_modified_by(self):
-        return self._element.lastModifiedBy_text
+	@property
+	def last_modified_by(self):
+		return self._element.lastModifiedBy_text
 
-    @last_modified_by.setter
-    def last_modified_by(self, value: str):
-        self._element.lastModifiedBy_text = value
+	@last_modified_by.setter
+	def last_modified_by(self, value: str):
+		self._element.lastModifiedBy_text = value
 
-    @property
-    def last_printed(self):
-        return self._element.lastPrinted_datetime
+	@property
+	def last_printed(self):
+		return self._element.lastPrinted_datetime
 
-    @last_printed.setter
-    def last_printed(self, value: dt.datetime):
-        self._element.lastPrinted_datetime = value
+	@last_printed.setter
+	def last_printed(self, value: dt.datetime):
+		self._element.lastPrinted_datetime = value
 
-    @property
-    def modified(self):
-        return self._element.modified_datetime
+	@property
+	def modified(self):
+		return self._element.modified_datetime
 
-    @modified.setter
-    def modified(self, value: dt.datetime):
-        self._element.modified_datetime = value
+	@modified.setter
+	def modified(self, value: dt.datetime):
+		self._element.modified_datetime = value
 
-    @property
-    def revision(self):
-        return self._element.revision_number
+	@property
+	def revision(self):
+		return self._element.revision_number
 
-    @revision.setter
-    def revision(self, value: int):
-        self._element.revision_number = value
+	@revision.setter
+	def revision(self, value: int):
+		self._element.revision_number = value
 
-    @property
-    def subject(self):
-        return self._element.subject_text
+	@property
+	def subject(self):
+		return self._element.subject_text
 
-    @subject.setter
-    def subject(self, value: str):
-        self._element.subject_text = value
+	@subject.setter
+	def subject(self, value: str):
+		self._element.subject_text = value
 
-    @property
-    def title(self):
-        return self._element.title_text
+	@property
+	def title(self):
+		return self._element.title_text
 
-    @title.setter
-    def title(self, value: str):
-        self._element.title_text = value
+	@title.setter
+	def title(self, value: str):
+		self._element.title_text = value
 
-    @property
-    def version(self):
-        return self._element.version_text
+	@property
+	def version(self):
+		return self._element.version_text
 
-    @version.setter
-    def version(self, value: str):
-        self._element.version_text = value
+	@version.setter
+	def version(self, value: str):
+		self._element.version_text = value

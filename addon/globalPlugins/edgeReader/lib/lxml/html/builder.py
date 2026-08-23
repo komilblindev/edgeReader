@@ -8,24 +8,24 @@ A set of HTML generator tags for building HTML documents.
 
 Usage::
 
-    >>> from lxml.html.builder import *
-    >>> html = HTML(
-    ...            HEAD( TITLE("Hello World") ),
-    ...            BODY( CLASS("main"),
-    ...                  H1("Hello World !")
-    ...            )
-    ...        )
+	>>> from lxml.html.builder import *
+	>>> html = HTML(
+	...            HEAD( TITLE("Hello World") ),
+	...            BODY( CLASS("main"),
+	...                  H1("Hello World !")
+	...            )
+	...        )
 
-    >>> import lxml.etree
-    >>> print lxml.etree.tostring(html, pretty_print=True)
-    <html>
-      <head>
-        <title>Hello World</title>
-      </head>
-      <body class="main">
-        <h1>Hello World !</h1>
-      </body>
-    </html>
+	>>> import lxml.etree
+	>>> print lxml.etree.tostring(html, pretty_print=True)
+	<html>
+	  <head>
+		<title>Hello World</title>
+	  </head>
+	  <body class="main">
+		<h1>Hello World !</h1>
+	  </body>
+	</html>
 
 """
 

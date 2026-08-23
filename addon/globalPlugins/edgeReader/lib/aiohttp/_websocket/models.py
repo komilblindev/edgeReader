@@ -9,72 +9,72 @@ WS_DEFLATE_TRAILING: Final[bytes] = bytes([0x00, 0x00, 0xFF, 0xFF])
 
 
 class WSCloseCode(IntEnum):
-    OK = 1000
-    GOING_AWAY = 1001
-    PROTOCOL_ERROR = 1002
-    UNSUPPORTED_DATA = 1003
-    ABNORMAL_CLOSURE = 1006
-    INVALID_TEXT = 1007
-    POLICY_VIOLATION = 1008
-    MESSAGE_TOO_BIG = 1009
-    MANDATORY_EXTENSION = 1010
-    INTERNAL_ERROR = 1011
-    SERVICE_RESTART = 1012
-    TRY_AGAIN_LATER = 1013
-    BAD_GATEWAY = 1014
+	OK = 1000
+	GOING_AWAY = 1001
+	PROTOCOL_ERROR = 1002
+	UNSUPPORTED_DATA = 1003
+	ABNORMAL_CLOSURE = 1006
+	INVALID_TEXT = 1007
+	POLICY_VIOLATION = 1008
+	MESSAGE_TOO_BIG = 1009
+	MANDATORY_EXTENSION = 1010
+	INTERNAL_ERROR = 1011
+	SERVICE_RESTART = 1012
+	TRY_AGAIN_LATER = 1013
+	BAD_GATEWAY = 1014
 
 
 class WSMsgType(IntEnum):
-    # websocket spec types
-    CONTINUATION = 0x0
-    TEXT = 0x1
-    BINARY = 0x2
-    PING = 0x9
-    PONG = 0xA
-    CLOSE = 0x8
+	# websocket spec types
+	CONTINUATION = 0x0
+	TEXT = 0x1
+	BINARY = 0x2
+	PING = 0x9
+	PONG = 0xA
+	CLOSE = 0x8
 
-    # aiohttp specific types
-    CLOSING = 0x100
-    CLOSED = 0x101
-    ERROR = 0x102
+	# aiohttp specific types
+	CLOSING = 0x100
+	CLOSED = 0x101
+	ERROR = 0x102
 
-    text = TEXT
-    binary = BINARY
-    ping = PING
-    pong = PONG
-    close = CLOSE
-    closing = CLOSING
-    closed = CLOSED
-    error = ERROR
+	text = TEXT
+	binary = BINARY
+	ping = PING
+	pong = PONG
+	close = CLOSE
+	closing = CLOSING
+	closed = CLOSED
+	error = ERROR
 
 
 class WSMessage(NamedTuple):
-    type: WSMsgType
-    # To type correctly, this would need some kind of tagged union for each type.
-    data: Any
-    extra: str | None
+	type: WSMsgType
+	# To type correctly, this would need some kind of tagged union for each type.
+	data: Any
+	extra: str | None
 
-    def json(self, *, loads: Callable[[Any], Any] = json.loads) -> Any:
-        """Return parsed JSON data.
+	def json(self, *, loads: Callable[[Any], Any] = json.loads) -> Any:
+		"""Return parsed JSON data.
 
-        .. versionadded:: 0.22
-        """
-        return loads(self.data)
+		.. versionadded:: 0.22
+		"""
+		return loads(self.data)
 
 
 class WSMessageTextBytes(NamedTuple):
-    """WebSocket TEXT message with raw bytes (no UTF-8 decoding)."""
+	"""WebSocket TEXT message with raw bytes (no UTF-8 decoding)."""
 
-    type: WSMsgType
-    # To type correctly, this would need some kind of tagged union for each type.
-    # In 4.0, we use a union of message types to properly type data, but in 3.x
-    # we keep it as Any to avoid a breaking change.
-    data: Any
-    extra: str | None
+	type: WSMsgType
+	# To type correctly, this would need some kind of tagged union for each type.
+	# In 4.0, we use a union of message types to properly type data, but in 3.x
+	# we keep it as Any to avoid a breaking change.
+	data: Any
+	extra: str | None
 
-    def json(self, *, loads: Callable[[Any], Any] = json.loads) -> Any:
-        """Return parsed JSON data."""
-        return loads(self.data)
+	def json(self, *, loads: Callable[[Any], Any] = json.loads) -> Any:
+		"""Return parsed JSON data."""
+		return loads(self.data)
 
 
 # Type aliases for message types based on decode_text setting
@@ -93,15 +93,15 @@ WS_CLOSING_MESSAGE = tuple.__new__(WSMessage, (WSMsgType.CLOSING, None, None))
 
 
 class WebSocketError(Exception):
-    """WebSocket protocol parser error."""
+	"""WebSocket protocol parser error."""
 
-    def __init__(self, code: int, message: str) -> None:
-        self.code = code
-        super().__init__(code, message)
+	def __init__(self, code: int, message: str) -> None:
+		self.code = code
+		super().__init__(code, message)
 
-    def __str__(self) -> str:
-        return cast(str, self.args[1])
+	def __str__(self) -> str:
+		return cast(str, self.args[1])
 
 
 class WSHandshakeError(Exception):
-    """WebSocket protocol handshake error."""
+	"""WebSocket protocol handshake error."""

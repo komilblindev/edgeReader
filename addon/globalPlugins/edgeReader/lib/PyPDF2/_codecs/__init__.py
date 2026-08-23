@@ -8,26 +8,26 @@ from .zapfding import _zapfding_encoding
 
 
 def fill_from_encoding(enc: str) -> List[str]:
-    lst: List[str] = []
-    for x in range(256):
-        try:
-            lst += (bytes((x,)).decode(enc),)
-        except Exception:
-            lst += (chr(x),)
-    return lst
+	lst: List[str] = []
+	for x in range(256):
+		try:
+			lst += (bytes((x,)).decode(enc),)
+		except Exception:
+			lst += (chr(x),)
+	return lst
 
 
 def rev_encoding(enc: List[str]) -> Dict[str, int]:
-    rev: Dict[str, int] = {}
-    for i in range(256):
-        char = enc[i]
-        if char == "\u0000":
-            continue
-        assert char not in rev, (
-            str(char) + " at " + str(i) + " already at " + str(rev[char])
-        )
-        rev[char] = i
-    return rev
+	rev: Dict[str, int] = {}
+	for i in range(256):
+		char = enc[i]
+		if char == "\u0000":
+			continue
+		assert char not in rev, (
+			str(char) + " at " + str(i) + " already at " + str(rev[char])
+		)
+		rev[char] = i
+	return rev
 
 
 _win_encoding = fill_from_encoding("cp1252")
@@ -42,22 +42,22 @@ _pdfdoc_encoding_rev: Dict[str, int] = rev_encoding(_pdfdoc_encoding)
 
 
 charset_encoding: Dict[str, List[str]] = {
-    "/StandardCoding": _std_encoding,
-    "/WinAnsiEncoding": _win_encoding,
-    "/MacRomanEncoding": _mac_encoding,
-    "/PDFDocEncoding": _pdfdoc_encoding,
-    "/Symbol": _symbol_encoding,
-    "/ZapfDingbats": _zapfding_encoding,
+	"/StandardCoding": _std_encoding,
+	"/WinAnsiEncoding": _win_encoding,
+	"/MacRomanEncoding": _mac_encoding,
+	"/PDFDocEncoding": _pdfdoc_encoding,
+	"/Symbol": _symbol_encoding,
+	"/ZapfDingbats": _zapfding_encoding,
 }
 
 __all__ = [
-    "adobe_glyphs",
-    "_std_encoding",
-    "_symbol_encoding",
-    "_zapfding_encoding",
-    "_pdfdoc_encoding",
-    "_pdfdoc_encoding_rev",
-    "_win_encoding",
-    "_mac_encoding",
-    "charset_encoding",
+	"adobe_glyphs",
+	"_std_encoding",
+	"_symbol_encoding",
+	"_zapfding_encoding",
+	"_pdfdoc_encoding",
+	"_pdfdoc_encoding_rev",
+	"_win_encoding",
+	"_mac_encoding",
+	"charset_encoding",
 ]

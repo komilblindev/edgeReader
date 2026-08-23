@@ -6,49 +6,49 @@ Please note that broken PDF files might cause other Exceptions.
 
 
 class DeprecationError(Exception):
-    """Raised when a deprecated feature is used."""
+	"""Raised when a deprecated feature is used."""
 
-    pass
+	pass
 
 
 class DependencyError(Exception):
-    pass
+	pass
 
 
 class PyPdfError(Exception):
-    pass
+	pass
 
 
 class PdfReadError(PyPdfError):
-    pass
+	pass
 
 
 class PageSizeNotDefinedError(PyPdfError):
-    pass
+	pass
 
 
 class PdfReadWarning(UserWarning):
-    pass
+	pass
 
 
 class PdfStreamError(PdfReadError):
-    pass
+	pass
 
 
 class ParseError(Exception):
-    pass
+	pass
 
 
 class FileNotDecryptedError(PdfReadError):
-    pass
+	pass
 
 
 class WrongPasswordError(FileNotDecryptedError):
-    pass
+	pass
 
 
 class EmptyFileError(PdfReadError):
-    pass
+	pass
 
 
 STREAM_TRUNCATED_PREMATURELY = "Stream has ended unexpectedly"

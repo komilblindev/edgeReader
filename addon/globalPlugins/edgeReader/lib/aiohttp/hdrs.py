@@ -19,15 +19,15 @@ METH_PUT: Final[str] = "PUT"
 METH_TRACE: Final[str] = "TRACE"
 
 METH_ALL: Final[set[str]] = {
-    METH_CONNECT,
-    METH_HEAD,
-    METH_GET,
-    METH_DELETE,
-    METH_OPTIONS,
-    METH_PATCH,
-    METH_POST,
-    METH_PUT,
-    METH_TRACE,
+	METH_CONNECT,
+	METH_HEAD,
+	METH_GET,
+	METH_DELETE,
+	METH_OPTIONS,
+	METH_PATCH,
+	METH_POST,
+	METH_PUT,
+	METH_TRACE,
 }
 
 ACCEPT: Final[istr] = istr("Accept")
@@ -111,5 +111,5 @@ X_FORWARDED_PROTO: Final[istr] = istr("X-Forwarded-Proto")
 # Case permutations of the Host header — for callers that match against
 # raw header tokens before istr/CIMultiDict folding.
 HOST_ALL: Final = frozenset(
-    map("".join, itertools.product(*zip(HOST.upper(), HOST.lower())))
+	map("".join, itertools.product(*zip(HOST.upper(), HOST.lower())))
 )

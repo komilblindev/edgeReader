@@ -8,55 +8,55 @@ from typing_extensions import Literal, NotRequired, TypedDict
 
 
 class TTSChunk(TypedDict):
-    """TTS chunk data."""
+	"""TTS chunk data."""
 
-    type: Literal["audio", "WordBoundary", "SentenceBoundary"]
-    data: NotRequired[bytes]  # only for audio
-    duration: NotRequired[float]  # only for WordBoundary and SentenceBoundary
-    offset: NotRequired[float]  # only for WordBoundary and SentenceBoundary
-    text: NotRequired[str]  # only for WordBoundary and SentenceBoundary
+	type: Literal["audio", "WordBoundary", "SentenceBoundary"]
+	data: NotRequired[bytes]  # only for audio
+	duration: NotRequired[float]  # only for WordBoundary and SentenceBoundary
+	offset: NotRequired[float]  # only for WordBoundary and SentenceBoundary
+	text: NotRequired[str]  # only for WordBoundary and SentenceBoundary
 
 
 class VoiceTag(TypedDict):
-    """VoiceTag data."""
+	"""VoiceTag data."""
 
-    ContentCategories: List[str]
-    VoicePersonalities: List[str]
+	ContentCategories: List[str]
+	VoicePersonalities: List[str]
 
 
 class Voice(TypedDict):
-    """Voice data."""
+	"""Voice data."""
 
-    Name: str
-    ShortName: str
-    Gender: Literal["Female", "Male"]
-    Locale: str
-    SuggestedCodec: str
-    FriendlyName: str
-    Status: Literal["Deprecated", "GA", "Preview"]
-    VoiceTag: VoiceTag
+	Name: str
+	ShortName: str
+	Gender: Literal["Female", "Male"]
+	Locale: str
+	SuggestedCodec: str
+	FriendlyName: str
+	Status: Literal["Deprecated", "GA", "Preview"]
+	VoiceTag: VoiceTag
 
 
 class VoicesManagerVoice(Voice):
-    """Voice data for VoicesManager."""
+	"""Voice data for VoicesManager."""
 
-    Language: str
+	Language: str
 
 
 class VoicesManagerFind(TypedDict):
-    """Voice data for VoicesManager.find()."""
+	"""Voice data for VoicesManager.find()."""
 
-    Gender: NotRequired[Literal["Female", "Male"]]
-    Locale: NotRequired[str]
-    Language: NotRequired[str]
+	Gender: NotRequired[Literal["Female", "Male"]]
+	Locale: NotRequired[str]
+	Language: NotRequired[str]
 
 
 class CommunicateState(TypedDict):
-    """Communicate state data."""
+	"""Communicate state data."""
 
-    partial_text: bytes
-    offset_compensation: float
-    last_duration_offset: float
-    stream_was_called: bool
-    chunk_audio_bytes: int  # bytes received in the current chunk
-    cumulative_audio_bytes: int  # bytes received across all completed chunks
+	partial_text: bytes
+	offset_compensation: float
+	last_duration_offset: float
+	stream_was_called: bool
+	chunk_audio_bytes: int  # bytes received in the current chunk
+	cumulative_audio_bytes: int  # bytes received across all completed chunks

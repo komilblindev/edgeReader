@@ -19,23 +19,23 @@ from .pagerange import PageRange, parse_filename_page_ranges
 from .papersizes import PaperSize
 
 warnings.warn(
-    message="PyPDF2 is deprecated. Please move to the pypdf library instead.",
-    category=DeprecationWarning,
+	message="PyPDF2 is deprecated. Please move to the pypdf library instead.",
+	category=DeprecationWarning,
 )
 
 __all__ = [
-    "__version__",
-    "PageRange",
-    "PaperSize",
-    "DocumentInformation",
-    "parse_filename_page_ranges",
-    "PdfFileMerger",  # will be removed in PyPDF2 3.0.0; use PdfMerger instead
-    "PdfFileReader",  # will be removed in PyPDF2 3.0.0; use PdfReader instead
-    "PdfFileWriter",  # will be removed in PyPDF2 3.0.0; use PdfWriter instead
-    "PdfMerger",
-    "PdfReader",
-    "PdfWriter",
-    "Transformation",
-    "PageObject",
-    "PasswordType",
+	"__version__",
+	"PageRange",
+	"PaperSize",
+	"DocumentInformation",
+	"parse_filename_page_ranges",
+	"PdfFileMerger",  # will be removed in PyPDF2 3.0.0; use PdfMerger instead
+	"PdfFileReader",  # will be removed in PyPDF2 3.0.0; use PdfReader instead
+	"PdfFileWriter",  # will be removed in PyPDF2 3.0.0; use PdfWriter instead
+	"PdfMerger",
+	"PdfReader",
+	"PdfWriter",
+	"Transformation",
+	"PageObject",
+	"PasswordType",
 ]

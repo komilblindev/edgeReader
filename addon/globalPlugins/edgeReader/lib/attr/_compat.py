@@ -18,63 +18,63 @@ PY_3_14_PLUS = sys.version_info[:2] >= (3, 14)
 
 
 if PY_3_14_PLUS:
-    import annotationlib
+	import annotationlib
 
-    # We request forward-ref annotations to not break in the presence of
-    # forward references.
+	# We request forward-ref annotations to not break in the presence of
+	# forward references.
 
-    def _get_annotations(cls):
-        return annotationlib.get_annotations(
-            cls, format=annotationlib.Format.FORWARDREF
-        )
+	def _get_annotations(cls):
+		return annotationlib.get_annotations(
+			cls, format=annotationlib.Format.FORWARDREF
+		)
 
 else:
 
-    def _get_annotations(cls):
-        """
-        Get annotations for *cls*.
-        """
-        return cls.__dict__.get("__annotations__", {})
+	def _get_annotations(cls):
+		"""
+		Get annotations for *cls*.
+		"""
+		return cls.__dict__.get("__annotations__", {})
 
 
 class _AnnotationExtractor:
-    """
-    Extract type annotations from a callable, returning None whenever there
-    is none.
-    """
+	"""
+	Extract type annotations from a callable, returning None whenever there
+	is none.
+	"""
 
-    __slots__ = ["sig"]
+	__slots__ = ["sig"]
 
-    def __init__(self, callable):
-        try:
-            self.sig = inspect.signature(callable)
-        except (ValueError, TypeError):  # inspect failed
-            self.sig = None
+	def __init__(self, callable):
+		try:
+			self.sig = inspect.signature(callable)
+		except (ValueError, TypeError):  # inspect failed
+			self.sig = None
 
-    def get_first_param_type(self):
-        """
-        Return the type annotation of the first argument if it's not empty.
-        """
-        if not self.sig:
-            return None
+	def get_first_param_type(self):
+		"""
+		Return the type annotation of the first argument if it's not empty.
+		"""
+		if not self.sig:
+			return None
 
-        params = list(self.sig.parameters.values())
-        if params and params[0].annotation is not inspect.Parameter.empty:
-            return params[0].annotation
+		params = list(self.sig.parameters.values())
+		if params and params[0].annotation is not inspect.Parameter.empty:
+			return params[0].annotation
 
-        return None
+		return None
 
-    def get_return_type(self):
-        """
-        Return the return type if it's not empty.
-        """
-        if (
-            self.sig
-            and self.sig.return_annotation is not inspect.Signature.empty
-        ):
-            return self.sig.return_annotation
+	def get_return_type(self):
+		"""
+		Return the return type if it's not empty.
+		"""
+		if (
+			self.sig
+			and self.sig.return_annotation is not inspect.Signature.empty
+		):
+			return self.sig.return_annotation
 
-        return None
+		return None
 
 
 # Thread-local global to track attrs instances which are already being repr'd.
@@ -93,7 +93,7 @@ repr_context = threading.local()
 
 
 def get_generic_base(cl):
-    """If this is a generic class (A[str]), return the generic base for it."""
-    if cl.__class__ is _GenericAlias:
-        return cl.__origin__
-    return None
+	"""If this is a generic class (A[str]), return the generic base for it."""
+	if cl.__class__ is _GenericAlias:
+		return cl.__origin__
+	return None

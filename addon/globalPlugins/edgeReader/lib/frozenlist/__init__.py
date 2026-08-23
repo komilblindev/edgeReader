@@ -13,74 +13,74 @@ NO_EXTENSIONS = bool(os.environ.get("FROZENLIST_NO_EXTENSIONS"))  # type: bool
 
 @total_ordering
 class FrozenList(MutableSequence):
-    __slots__ = ("_frozen", "_items")
-    __class_getitem__ = classmethod(types.GenericAlias)
+	__slots__ = ("_frozen", "_items")
+	__class_getitem__ = classmethod(types.GenericAlias)
 
-    def __init__(self, items=None):
-        self._frozen = False
-        if items is not None:
-            items = list(items)
-        else:
-            items = []
-        self._items = items
+	def __init__(self, items=None):
+		self._frozen = False
+		if items is not None:
+			items = list(items)
+		else:
+			items = []
+		self._items = items
 
-    @property
-    def frozen(self):
-        return self._frozen
+	@property
+	def frozen(self):
+		return self._frozen
 
-    def freeze(self):
-        self._frozen = True
+	def freeze(self):
+		self._frozen = True
 
-    def __getitem__(self, index):
-        return self._items[index]
+	def __getitem__(self, index):
+		return self._items[index]
 
-    def __setitem__(self, index, value):
-        if self._frozen:
-            raise RuntimeError("Cannot modify frozen list.")
-        self._items[index] = value
+	def __setitem__(self, index, value):
+		if self._frozen:
+			raise RuntimeError("Cannot modify frozen list.")
+		self._items[index] = value
 
-    def __delitem__(self, index):
-        if self._frozen:
-            raise RuntimeError("Cannot modify frozen list.")
-        del self._items[index]
+	def __delitem__(self, index):
+		if self._frozen:
+			raise RuntimeError("Cannot modify frozen list.")
+		del self._items[index]
 
-    def __len__(self):
-        return self._items.__len__()
+	def __len__(self):
+		return self._items.__len__()
 
-    def __iter__(self):
-        return self._items.__iter__()
+	def __iter__(self):
+		return self._items.__iter__()
 
-    def __reversed__(self):
-        return self._items.__reversed__()
+	def __reversed__(self):
+		return self._items.__reversed__()
 
-    def __eq__(self, other):
-        return list(self) == other
+	def __eq__(self, other):
+		return list(self) == other
 
-    def __le__(self, other):
-        return list(self) <= other
+	def __le__(self, other):
+		return list(self) <= other
 
-    def insert(self, pos, item):
-        if self._frozen:
-            raise RuntimeError("Cannot modify frozen list.")
-        self._items.insert(pos, item)
+	def insert(self, pos, item):
+		if self._frozen:
+			raise RuntimeError("Cannot modify frozen list.")
+		self._items.insert(pos, item)
 
-    def __repr__(self):
-        return f"<FrozenList(frozen={self._frozen}, {self._items!r})>"
+	def __repr__(self):
+		return f"<FrozenList(frozen={self._frozen}, {self._items!r})>"
 
-    def __hash__(self):
-        if self._frozen:
-            return hash(tuple(self))
-        else:
-            raise RuntimeError("Cannot hash unfrozen list.")
+	def __hash__(self):
+		if self._frozen:
+			return hash(tuple(self))
+		else:
+			raise RuntimeError("Cannot hash unfrozen list.")
 
 
 PyFrozenList = FrozenList
 
 
 if not NO_EXTENSIONS:
-    try:
-        from ._frozenlist import FrozenList as CFrozenList  # type: ignore
-    except ImportError:  # pragma: no cover
-        pass
-    else:
-        FrozenList = CFrozenList  # type: ignore
+	try:
+		from ._frozenlist import FrozenList as CFrozenList  # type: ignore
+	except ImportError:  # pragma: no cover
+		pass
+	else:
+		FrozenList = CFrozenList  # type: ignore

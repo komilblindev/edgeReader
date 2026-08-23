@@ -7,69 +7,69 @@ from .typedefs import LooseHeaders, StrOrURL
 from .web_response import Response
 
 __all__ = (
-    "HTTPException",
-    "HTTPError",
-    "HTTPRedirection",
-    "HTTPSuccessful",
-    "HTTPOk",
-    "HTTPCreated",
-    "HTTPAccepted",
-    "HTTPNonAuthoritativeInformation",
-    "HTTPNoContent",
-    "HTTPResetContent",
-    "HTTPPartialContent",
-    "HTTPMove",
-    "HTTPMultipleChoices",
-    "HTTPMovedPermanently",
-    "HTTPFound",
-    "HTTPSeeOther",
-    "HTTPNotModified",
-    "HTTPUseProxy",
-    "HTTPTemporaryRedirect",
-    "HTTPPermanentRedirect",
-    "HTTPClientError",
-    "HTTPBadRequest",
-    "HTTPUnauthorized",
-    "HTTPPaymentRequired",
-    "HTTPForbidden",
-    "HTTPNotFound",
-    "HTTPMethodNotAllowed",
-    "HTTPNotAcceptable",
-    "HTTPProxyAuthenticationRequired",
-    "HTTPRequestTimeout",
-    "HTTPConflict",
-    "HTTPGone",
-    "HTTPLengthRequired",
-    "HTTPPreconditionFailed",
-    "HTTPRequestEntityTooLarge",
-    "HTTPRequestURITooLong",
-    "HTTPUnsupportedMediaType",
-    "HTTPRequestRangeNotSatisfiable",
-    "HTTPExpectationFailed",
-    "HTTPMisdirectedRequest",
-    "HTTPUnprocessableEntity",
-    "HTTPFailedDependency",
-    "HTTPUpgradeRequired",
-    "HTTPPreconditionRequired",
-    "HTTPTooManyRequests",
-    "HTTPRequestHeaderFieldsTooLarge",
-    "HTTPUnavailableForLegalReasons",
-    "HTTPServerError",
-    "HTTPInternalServerError",
-    "HTTPNotImplemented",
-    "HTTPBadGateway",
-    "HTTPServiceUnavailable",
-    "HTTPGatewayTimeout",
-    "HTTPVersionNotSupported",
-    "HTTPVariantAlsoNegotiates",
-    "HTTPInsufficientStorage",
-    "HTTPNotExtended",
-    "HTTPNetworkAuthenticationRequired",
+	"HTTPException",
+	"HTTPError",
+	"HTTPRedirection",
+	"HTTPSuccessful",
+	"HTTPOk",
+	"HTTPCreated",
+	"HTTPAccepted",
+	"HTTPNonAuthoritativeInformation",
+	"HTTPNoContent",
+	"HTTPResetContent",
+	"HTTPPartialContent",
+	"HTTPMove",
+	"HTTPMultipleChoices",
+	"HTTPMovedPermanently",
+	"HTTPFound",
+	"HTTPSeeOther",
+	"HTTPNotModified",
+	"HTTPUseProxy",
+	"HTTPTemporaryRedirect",
+	"HTTPPermanentRedirect",
+	"HTTPClientError",
+	"HTTPBadRequest",
+	"HTTPUnauthorized",
+	"HTTPPaymentRequired",
+	"HTTPForbidden",
+	"HTTPNotFound",
+	"HTTPMethodNotAllowed",
+	"HTTPNotAcceptable",
+	"HTTPProxyAuthenticationRequired",
+	"HTTPRequestTimeout",
+	"HTTPConflict",
+	"HTTPGone",
+	"HTTPLengthRequired",
+	"HTTPPreconditionFailed",
+	"HTTPRequestEntityTooLarge",
+	"HTTPRequestURITooLong",
+	"HTTPUnsupportedMediaType",
+	"HTTPRequestRangeNotSatisfiable",
+	"HTTPExpectationFailed",
+	"HTTPMisdirectedRequest",
+	"HTTPUnprocessableEntity",
+	"HTTPFailedDependency",
+	"HTTPUpgradeRequired",
+	"HTTPPreconditionRequired",
+	"HTTPTooManyRequests",
+	"HTTPRequestHeaderFieldsTooLarge",
+	"HTTPUnavailableForLegalReasons",
+	"HTTPServerError",
+	"HTTPInternalServerError",
+	"HTTPNotImplemented",
+	"HTTPBadGateway",
+	"HTTPServiceUnavailable",
+	"HTTPGatewayTimeout",
+	"HTTPVersionNotSupported",
+	"HTTPVariantAlsoNegotiates",
+	"HTTPInsufficientStorage",
+	"HTTPNotExtended",
+	"HTTPNetworkAuthenticationRequired",
 )
 
 
 class NotAppKeyWarning(UserWarning):
-    """Warning when not using AppKey in Application."""
+	"""Warning when not using AppKey in Application."""
 
 
 ############################################################
@@ -79,87 +79,87 @@ class NotAppKeyWarning(UserWarning):
 
 class HTTPException(Response, Exception):
 
-    # You should set in subclasses:
-    # status = 200
+	# You should set in subclasses:
+	# status = 200
 
-    status_code = -1
-    empty_body = False
+	status_code = -1
+	empty_body = False
 
-    __http_exception__ = True
+	__http_exception__ = True
 
-    def __init__(
-        self,
-        *,
-        headers: LooseHeaders | None = None,
-        reason: str | None = None,
-        body: Any = None,
-        text: str | None = None,
-        content_type: str | None = None,
-    ) -> None:
-        if body is not None:
-            warnings.warn(
-                "body argument is deprecated for http web exceptions",
-                DeprecationWarning,
-            )
-        if reason is not None and ("\r" in reason or "\n" in reason):
-            raise ValueError("Reason cannot contain \\r or \\n")
-        Response.__init__(
-            self,
-            status=self.status_code,
-            headers=headers,
-            reason=reason,
-            body=body,
-            text=text,
-            content_type=content_type,
-        )
-        Exception.__init__(self, self.reason)
-        if self.body is None and not self.empty_body:
-            self.text = f"{self.status}: {self.reason}"
+	def __init__(
+		self,
+		*,
+		headers: LooseHeaders | None = None,
+		reason: str | None = None,
+		body: Any = None,
+		text: str | None = None,
+		content_type: str | None = None,
+	) -> None:
+		if body is not None:
+			warnings.warn(
+				"body argument is deprecated for http web exceptions",
+				DeprecationWarning,
+			)
+		if reason is not None and ("\r" in reason or "\n" in reason):
+			raise ValueError("Reason cannot contain \\r or \\n")
+		Response.__init__(
+			self,
+			status=self.status_code,
+			headers=headers,
+			reason=reason,
+			body=body,
+			text=text,
+			content_type=content_type,
+		)
+		Exception.__init__(self, self.reason)
+		if self.body is None and not self.empty_body:
+			self.text = f"{self.status}: {self.reason}"
 
-    def __bool__(self) -> bool:
-        return True
+	def __bool__(self) -> bool:
+		return True
 
 
 class HTTPError(HTTPException):
-    """Base class for exceptions with status codes in the 400s and 500s."""
+	"""Base class for exceptions with status codes in the 400s and 500s."""
 
 
 class HTTPRedirection(HTTPException):
-    """Base class for exceptions with status codes in the 300s."""
+	"""Base class for exceptions with status codes in the 300s."""
 
 
 class HTTPSuccessful(HTTPException):
-    """Base class for exceptions with status codes in the 200s."""
+	"""Base class for exceptions with status codes in the 200s."""
 
 
 class HTTPOk(HTTPSuccessful):
-    status_code = 200
+	status_code = 200
 
 
 class HTTPCreated(HTTPSuccessful):
-    status_code = 201
+	status_code = 201
 
 
 class HTTPAccepted(HTTPSuccessful):
-    status_code = 202
+	status_code = 202
 
 
 class HTTPNonAuthoritativeInformation(HTTPSuccessful):
-    status_code = 203
+	status_code = 203
 
 
 class HTTPNoContent(HTTPSuccessful):
-    status_code = 204
-    empty_body = True
+	status_code = 204
+	empty_body = True
 
 
 class HTTPResetContent(HTTPSuccessful):
-    status_code = 205
-    empty_body = True
+	status_code = 205
+	empty_body = True
 
 
 class HTTPPartialContent(HTTPSuccessful):
-    status_code = 206
+	status_code = 206
 
 
 ############################################################
@@ -168,64 +168,64 @@ class HTTPPartialContent(HTTPSuccessful):
 
 
 class HTTPMove(HTTPRedirection):
-    def __init__(
-        self,
-        location: StrOrURL,
-        *,
-        headers: LooseHeaders | None = None,
-        reason: str | None = None,
-        body: Any = None,
-        text: str | None = None,
-        content_type: str | None = None,
-    ) -> None:
-        if not location:
-            raise ValueError("HTTP redirects need a location to redirect to.")
-        super().__init__(
-            headers=headers,
-            reason=reason,
-            body=body,
-            text=text,
-            content_type=content_type,
-        )
-        self.headers["Location"] = str(URL(location))
-        self.location = location
+	def __init__(
+		self,
+		location: StrOrURL,
+		*,
+		headers: LooseHeaders | None = None,
+		reason: str | None = None,
+		body: Any = None,
+		text: str | None = None,
+		content_type: str | None = None,
+	) -> None:
+		if not location:
+			raise ValueError("HTTP redirects need a location to redirect to.")
+		super().__init__(
+			headers=headers,
+			reason=reason,
+			body=body,
+			text=text,
+			content_type=content_type,
+		)
+		self.headers["Location"] = str(URL(location))
+		self.location = location
 
 
 class HTTPMultipleChoices(HTTPMove):
-    status_code = 300
+	status_code = 300
 
 
 class HTTPMovedPermanently(HTTPMove):
-    status_code = 301
+	status_code = 301
 
 
 class HTTPFound(HTTPMove):
-    status_code = 302
+	status_code = 302
 
 
 # This one is safe after a POST (the redirected location will be
 # retrieved with GET):
 class HTTPSeeOther(HTTPMove):
-    status_code = 303
+	status_code = 303
 
 
 class HTTPNotModified(HTTPRedirection):
-    # FIXME: this should include a date or etag header
-    status_code = 304
-    empty_body = True
+	# FIXME: this should include a date or etag header
+	status_code = 304
+	empty_body = True
 
 
 class HTTPUseProxy(HTTPMove):
-    # Not a move, but looks a little like one
-    status_code = 305
+	# Not a move, but looks a little like one
+	status_code = 305
 
 
 class HTTPTemporaryRedirect(HTTPMove):
-    status_code = 307
+	status_code = 307
 
 
 class HTTPPermanentRedirect(HTTPMove):
-    status_code = 308
+	status_code = 308
 
 
 ############################################################
@@ -234,164 +234,164 @@ class HTTPPermanentRedirect(HTTPMove):
 
 
 class HTTPClientError(HTTPError):
-    pass
+	pass
 
 
 class HTTPBadRequest(HTTPClientError):
-    status_code = 400
+	status_code = 400
 
 
 class HTTPUnauthorized(HTTPClientError):
-    status_code = 401
+	status_code = 401
 
 
 class HTTPPaymentRequired(HTTPClientError):
-    status_code = 402
+	status_code = 402
 
 
 class HTTPForbidden(HTTPClientError):
-    status_code = 403
+	status_code = 403
 
 
 class HTTPNotFound(HTTPClientError):
-    status_code = 404
+	status_code = 404
 
 
 class HTTPMethodNotAllowed(HTTPClientError):
-    status_code = 405
+	status_code = 405
 
-    def __init__(
-        self,
-        method: str,
-        allowed_methods: Iterable[str],
-        *,
-        headers: LooseHeaders | None = None,
-        reason: str | None = None,
-        body: Any = None,
-        text: str | None = None,
-        content_type: str | None = None,
-    ) -> None:
-        allow = ",".join(sorted(allowed_methods))
-        super().__init__(
-            headers=headers,
-            reason=reason,
-            body=body,
-            text=text,
-            content_type=content_type,
-        )
-        self.headers["Allow"] = allow
-        self.allowed_methods: set[str] = set(allowed_methods)
-        self.method = method.upper()
+	def __init__(
+		self,
+		method: str,
+		allowed_methods: Iterable[str],
+		*,
+		headers: LooseHeaders | None = None,
+		reason: str | None = None,
+		body: Any = None,
+		text: str | None = None,
+		content_type: str | None = None,
+	) -> None:
+		allow = ",".join(sorted(allowed_methods))
+		super().__init__(
+			headers=headers,
+			reason=reason,
+			body=body,
+			text=text,
+			content_type=content_type,
+		)
+		self.headers["Allow"] = allow
+		self.allowed_methods: set[str] = set(allowed_methods)
+		self.method = method.upper()
 
 
 class HTTPNotAcceptable(HTTPClientError):
-    status_code = 406
+	status_code = 406
 
 
 class HTTPProxyAuthenticationRequired(HTTPClientError):
-    status_code = 407
+	status_code = 407
 
 
 class HTTPRequestTimeout(HTTPClientError):
-    status_code = 408
+	status_code = 408
 
 
 class HTTPConflict(HTTPClientError):
-    status_code = 409
+	status_code = 409
 
 
 class HTTPGone(HTTPClientError):
-    status_code = 410
+	status_code = 410
 
 
 class HTTPLengthRequired(HTTPClientError):
-    status_code = 411
+	status_code = 411
 
 
 class HTTPPreconditionFailed(HTTPClientError):
-    status_code = 412
+	status_code = 412
 
 
 class HTTPRequestEntityTooLarge(HTTPClientError):
-    status_code = 413
+	status_code = 413
 
-    def __init__(self, max_size: float, actual_size: float = 0, **kwargs: Any) -> None:
-        kwargs.setdefault("text", f"Maximum request body size {max_size} exceeded.")
-        super().__init__(**kwargs)
+	def __init__(self, max_size: float, actual_size: float = 0, **kwargs: Any) -> None:
+		kwargs.setdefault("text", f"Maximum request body size {max_size} exceeded.")
+		super().__init__(**kwargs)
 
 
 class HTTPRequestURITooLong(HTTPClientError):
-    status_code = 414
+	status_code = 414
 
 
 class HTTPUnsupportedMediaType(HTTPClientError):
-    status_code = 415
+	status_code = 415
 
 
 class HTTPRequestRangeNotSatisfiable(HTTPClientError):
-    status_code = 416
+	status_code = 416
 
 
 class HTTPExpectationFailed(HTTPClientError):
-    status_code = 417
+	status_code = 417
 
 
 class HTTPMisdirectedRequest(HTTPClientError):
-    status_code = 421
+	status_code = 421
 
 
 class HTTPUnprocessableEntity(HTTPClientError):
-    status_code = 422
+	status_code = 422
 
 
 class HTTPFailedDependency(HTTPClientError):
-    status_code = 424
+	status_code = 424
 
 
 class HTTPUpgradeRequired(HTTPClientError):
-    status_code = 426
+	status_code = 426
 
 
 class HTTPPreconditionRequired(HTTPClientError):
-    status_code = 428
+	status_code = 428
 
 
 class HTTPTooManyRequests(HTTPClientError):
-    status_code = 429
+	status_code = 429
 
 
 class HTTPRequestHeaderFieldsTooLarge(HTTPClientError):
-    status_code = 431
+	status_code = 431
 
 
 class HTTPUnavailableForLegalReasons(HTTPClientError):
-    status_code = 451
+	status_code = 451
 
-    def __init__(
-        self,
-        link: StrOrURL | None,
-        *,
-        headers: LooseHeaders | None = None,
-        reason: str | None = None,
-        body: Any = None,
-        text: str | None = None,
-        content_type: str | None = None,
-    ) -> None:
-        super().__init__(
-            headers=headers,
-            reason=reason,
-            body=body,
-            text=text,
-            content_type=content_type,
-        )
-        self._link = None
-        if link:
-            self._link = URL(link)
-            self.headers["Link"] = f'<{str(self._link)}>; rel="blocked-by"'
+	def __init__(
+		self,
+		link: StrOrURL | None,
+		*,
+		headers: LooseHeaders | None = None,
+		reason: str | None = None,
+		body: Any = None,
+		text: str | None = None,
+		content_type: str | None = None,
+	) -> None:
+		super().__init__(
+			headers=headers,
+			reason=reason,
+			body=body,
+			text=text,
+			content_type=content_type,
+		)
+		self._link = None
+		if link:
+			self._link = URL(link)
+			self.headers["Link"] = f'<{str(self._link)}>; rel="blocked-by"'
 
-    @property
-    def link(self) -> URL | None:
-        return self._link
+	@property
+	def link(self) -> URL | None:
+		return self._link
 
 
 ############################################################
@@ -407,44 +407,44 @@ class HTTPUnavailableForLegalReasons(HTTPClientError):
 
 
 class HTTPServerError(HTTPError):
-    pass
+	pass
 
 
 class HTTPInternalServerError(HTTPServerError):
-    status_code = 500
+	status_code = 500
 
 
 class HTTPNotImplemented(HTTPServerError):
-    status_code = 501
+	status_code = 501
 
 
 class HTTPBadGateway(HTTPServerError):
-    status_code = 502
+	status_code = 502
 
 
 class HTTPServiceUnavailable(HTTPServerError):
-    status_code = 503
+	status_code = 503
 
 
 class HTTPGatewayTimeout(HTTPServerError):
-    status_code = 504
+	status_code = 504
 
 
 class HTTPVersionNotSupported(HTTPServerError):
-    status_code = 505
+	status_code = 505
 
 
 class HTTPVariantAlsoNegotiates(HTTPServerError):
-    status_code = 506
+	status_code = 506
 
 
 class HTTPInsufficientStorage(HTTPServerError):
-    status_code = 507
+	status_code = 507
 
 
 class HTTPNotExtended(HTTPServerError):
-    status_code = 510
+	status_code = 510
 
 
 class HTTPNetworkAuthenticationRequired(HTTPServerError):
-    status_code = 511
+	status_code = 511

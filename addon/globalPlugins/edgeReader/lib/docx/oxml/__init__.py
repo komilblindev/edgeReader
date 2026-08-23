@@ -10,30 +10,30 @@ from __future__ import annotations
 from docx.oxml.drawing import CT_Drawing
 from docx.oxml.parser import OxmlElement, parse_xml, register_element_cls
 from docx.oxml.shape import (
-    CT_Anchor,
-    CT_Blip,
-    CT_BlipFillProperties,
-    CT_GraphicalObject,
-    CT_GraphicalObjectData,
-    CT_Inline,
-    CT_NonVisualDrawingProps,
-    CT_Picture,
-    CT_PictureNonVisual,
-    CT_Point2D,
-    CT_PositiveSize2D,
-    CT_ShapeProperties,
-    CT_Transform2D,
+	CT_Anchor,
+	CT_Blip,
+	CT_BlipFillProperties,
+	CT_GraphicalObject,
+	CT_GraphicalObjectData,
+	CT_Inline,
+	CT_NonVisualDrawingProps,
+	CT_Picture,
+	CT_PictureNonVisual,
+	CT_Point2D,
+	CT_PositiveSize2D,
+	CT_ShapeProperties,
+	CT_Transform2D,
 )
 from docx.oxml.shared import CT_DecimalNumber, CT_OnOff, CT_String
 from docx.oxml.text.hyperlink import CT_Hyperlink
 from docx.oxml.text.pagebreak import CT_LastRenderedPageBreak
 from docx.oxml.text.run import (
-    CT_R,
-    CT_Br,
-    CT_Cr,
-    CT_NoBreakHyphen,
-    CT_PTab,
-    CT_Text,
+	CT_R,
+	CT_Br,
+	CT_Cr,
+	CT_NoBreakHyphen,
+	CT_PTab,
+	CT_Text,
 )
 
 # -- `OxmlElement` and `parse_xml()` are not used in this module but several downstream
@@ -112,12 +112,12 @@ register_element_cls("w:numbering", CT_Numbering)
 register_element_cls("w:startOverride", CT_DecimalNumber)
 
 from .section import (
-    CT_HdrFtr,
-    CT_HdrFtrRef,
-    CT_PageMar,
-    CT_PageSz,
-    CT_SectPr,
-    CT_SectType,
+	CT_HdrFtr,
+	CT_HdrFtrRef,
+	CT_PageMar,
+	CT_PageSz,
+	CT_SectPr,
+	CT_SectType,
 )
 
 register_element_cls("w:footerReference", CT_HdrFtrRef)
@@ -149,20 +149,20 @@ register_element_cls("w:uiPriority", CT_DecimalNumber)
 register_element_cls("w:unhideWhenUsed", CT_OnOff)
 
 from .table import (
-    CT_Height,
-    CT_Row,
-    CT_Tbl,
-    CT_TblGrid,
-    CT_TblGridCol,
-    CT_TblLayoutType,
-    CT_TblPr,
-    CT_TblPrEx,
-    CT_TblWidth,
-    CT_Tc,
-    CT_TcPr,
-    CT_TrPr,
-    CT_VMerge,
-    CT_VerticalJc,
+	CT_Height,
+	CT_Row,
+	CT_Tbl,
+	CT_TblGrid,
+	CT_TblGridCol,
+	CT_TblLayoutType,
+	CT_TblPr,
+	CT_TblPrEx,
+	CT_TblWidth,
+	CT_Tc,
+	CT_TcPr,
+	CT_TrPr,
+	CT_VMerge,
+	CT_VerticalJc,
 )
 
 register_element_cls("w:bidiVisual", CT_OnOff)
@@ -186,13 +186,13 @@ register_element_cls("w:vAlign", CT_VerticalJc)
 register_element_cls("w:vMerge", CT_VMerge)
 
 from .text.font import (
-    CT_Color,
-    CT_Fonts,
-    CT_Highlight,
-    CT_HpsMeasure,
-    CT_RPr,
-    CT_Underline,
-    CT_VerticalAlignRun,
+	CT_Color,
+	CT_Fonts,
+	CT_Highlight,
+	CT_HpsMeasure,
+	CT_RPr,
+	CT_Underline,
+	CT_VerticalAlignRun,
 )
 
 register_element_cls("w:b", CT_OnOff)
@@ -229,12 +229,12 @@ from .text.paragraph import CT_P
 register_element_cls("w:p", CT_P)
 
 from .text.parfmt import (
-    CT_Ind,
-    CT_Jc,
-    CT_PPr,
-    CT_Spacing,
-    CT_TabStop,
-    CT_TabStops,
+	CT_Ind,
+	CT_Jc,
+	CT_PPr,
+	CT_Spacing,
+	CT_TabStop,
+	CT_TabStops,
 )
 
 register_element_cls("w:ind", CT_Ind)
