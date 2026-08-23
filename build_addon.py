@@ -7,7 +7,7 @@ addon_dir = os.path.join(base_dir, 'addon')
 dist_dir = os.path.join(base_dir, 'dist')
 os.makedirs(dist_dir, exist_ok=True)
 
-addon_name = 'edgeReader-1.2.3.nvda-addon'
+addon_name = 'edgeReader-1.2.4.nvda-addon'
 output_path = os.path.join(dist_dir, addon_name)
 
 print(f'Building {addon_name} from {addon_dir}...')
