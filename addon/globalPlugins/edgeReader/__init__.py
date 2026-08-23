@@ -306,7 +306,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		self.downloads_dir = os.path.join(os.path.expanduser('~'), 'Downloads')
-		self.edge_reader_dir = os.path.join(self.downloads_dir, 'EdgeReader_MP3_Results')
+		
+		# Translate main folder and track suffix based on NVDA language
+		import languageHandler
+		nvda_lang = languageHandler.getLanguage() or 'en'
+		if nvda_lang.startswith('uz'):
+			main_folder_name = 'EdgeReader_MP3_Natijalari'
+			self.track_suffix = '_trek.mp3'
+		elif nvda_lang.startswith('ru'):
+			main_folder_name = 'EdgeReader_MP3_Результаты'
+			self.track_suffix = '_трек.mp3'
+		else:
+			main_folder_name = 'EdgeReader_MP3_Results'
+			self.track_suffix = '_track.mp3'
+			
+		self.edge_reader_dir = os.path.join(self.downloads_dir, main_folder_name)
 		
 		if not os.path.exists(self.edge_reader_dir):
 			os.makedirs(self.edge_reader_dir)
@@ -584,7 +598,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						communicate = edge_tts.Communicate(final_text, voice_name, rate=rate_str, pitch=pitch_str)
 						
 						if is_track_by_track:
-							track_path = os.path.join(folder_path, f"{idx:02d}_trek.mp3")
+							track_path = os.path.join(folder_path, f"{idx:02d}{self.track_suffix}")
 							await communicate.save(track_path)
 						else:
 							async for c in communicate.stream():
