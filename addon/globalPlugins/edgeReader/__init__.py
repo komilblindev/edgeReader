@@ -453,6 +453,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except:
 			pass
 
+	def _get_translated_prefix(self, prefix):
+		import languageHandler
+		nvda_lang = languageHandler.getLanguage() or 'en'
+		if nvda_lang.startswith('uz'):
+			return {'Clipboard': 'Bufer', 'Focused': 'Fokuslangan', 'Selection': 'Tanlangan'}.get(prefix, prefix)
+		elif nvda_lang.startswith('ru'):
+			return {'Clipboard': 'Буфер_обмена', 'Focused': 'Фокус', 'Selection': 'Выделение'}.get(prefix, prefix)
+		return prefix
+		
 	def _process_and_save(self, text, base_filename):
 		import threading
 		# The sentence-split + language-detection pass below can take a
@@ -749,7 +758,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception:
 			clip_text = None
 		if clip_text and clip_text.strip():
-			self._process_and_save(clip_text, "Clipboard")
+			self._process_and_save(clip_text, self._get_translated_prefix("Clipboard"))
 		else:
 			ui.message(_("Clipboard is empty"))
 
@@ -766,7 +775,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception:
 			text = ""
 		if text and text.strip():
-			self._process_and_save(text, "Selection")
+			self._process_and_save(text, self._get_translated_prefix("Selection"))
 		else:
 			ui.message(_("No selected text found"))
 
@@ -799,7 +808,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			text = ""
 			
 		if text and text.strip():
-			self._process_and_save(text, "Selection")
+			self._process_and_save(text, self._get_translated_prefix("Selection"))
 			return
 			
 		# 2. File in clipboard using ctypes
@@ -838,7 +847,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			pass
 			
 		if clip_text and clip_text.strip():
-			self._process_and_save(clip_text, "Clipboard")
+			self._process_and_save(clip_text, self._get_translated_prefix("Clipboard"))
 			return
 			
 		# 4. Focused object text
@@ -849,7 +858,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			text = ""
 			
 		if text and text.strip():
-			self._process_and_save(text, "Focused")
+			self._process_and_save(text, self._get_translated_prefix("Focused"))
 			return
 			
 		ui.message(_("Fayl bo'sh yoki matn topilmadi"))
