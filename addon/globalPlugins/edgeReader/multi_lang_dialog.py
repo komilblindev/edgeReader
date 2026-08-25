@@ -84,7 +84,7 @@ class MultiLangDialog(wx.Dialog):
 
 		hbox_btn = wx.BoxSizer(wx.HORIZONTAL)
 		btn_ok = wx.Button(main_panel, id=wx.ID_OK, label=_("Boshlash"))
-		btn_skip = wx.Button(main_panel, id=wx.ID_CANCEL, label=_("Avtomatik (Skip)"))
+		btn_skip = wx.Button(main_panel, id=wx.ID_NO, label=_("Avtomatik (Skip)"))
 
 		hbox_btn.Add(btn_ok, flag=wx.RIGHT, border=10)
 		hbox_btn.Add(btn_skip)
@@ -95,7 +95,7 @@ class MultiLangDialog(wx.Dialog):
 		main_vbox.Fit(self)
 
 		self.Bind(wx.EVT_BUTTON, self.on_ok, id=wx.ID_OK)
-		self.Bind(wx.EVT_BUTTON, self.on_skip, id=wx.ID_CANCEL)
+		self.Bind(wx.EVT_BUTTON, self.on_skip, id=wx.ID_NO)
 
 	def on_check_multi(self, event):
 		is_checked = self.chk_multi.GetValue()
@@ -113,4 +113,4 @@ class MultiLangDialog(wx.Dialog):
 
 	def on_skip(self, event):
 		self.use_multi_lang = False
-		self.EndModal(wx.ID_CANCEL)
+		self.EndModal(wx.ID_NO)

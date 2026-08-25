@@ -530,7 +530,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			
 		def show_dialog():
 			dlg = MultiLangDialog(None, list(unique_langs))
-			dlg.ShowModal()
+			ret = dlg.ShowModal()
+			
+			if ret == wx.ID_CANCEL:
+				dlg.Destroy()
+				ui.message(_("Bekor qilindi") if _("Bekor qilindi") != "Bekor qilindi" else "Canceled")
+				return
+				
 			voice_selections = dlg.voice_selections
 			is_track_by_track = dlg.is_track_by_track
 			use_multi_lang = dlg.use_multi_lang
@@ -873,11 +879,5 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gui.mainFrame._popupSettingsDialog(EdgeReaderSettingsPanel)
 
 	__gestures__ = {
-		"kb:NVDA+windows+r": "toggleMp3Mode",
-		"kb:NVDA+windows+s": "saveLastSpeech",
-		"kb:NVDA+windows+o": "openMp3Folder",
-		"kb:NVDA+windows+c": "compileLargeText",
-		"kb:NVDA+windows+x": "compileSelection",
-		"kb:NVDA+windows+f": "compileFile",
-		"kb:NVDA+windows+e": "openSettings",
+		# Tugmalar belgilanmagan. Foydalanuvchi "Input Gestures" orqali o'zi belgilashi mumkin.
 	}
