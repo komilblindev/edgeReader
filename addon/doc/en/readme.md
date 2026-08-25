@@ -19,15 +19,13 @@ Edge Reader is an NVDA add-on that allows you to easily save any spoken text as 
 * **Unassigned:** Opens Edge Reader settings.
 * **Unassigned:** Smart compile - automatically converts selection, file, focused text or clipboard to MP3.
 
-
-
 ### How to assign keyboard shortcuts?
 After installing the add-on, you need to assign shortcut keys to its functions based on your keyboard layout:
-1. Open the **NVDA Menu** (NVDA + N).
+1. Open the **NVDA Menu** (`NVDA + N`).
 2. Go to **Preferences** -> **Input Gestures**.
 3. Find and expand the **Edge Reader** category.
 4. Select the function you want to assign a shortcut to.
-5. Click the **Add** button and press your preferred key combination (e.g., NVDA + Windows + E).
+5. Click the **Add** button and press your preferred key combination (e.g., `NVDA + Windows + E`).
 6. A context menu will appear. Choose the keyboard layout (Desktop, Laptop, or all layouts).
 7. Click **OK** to save.
 
