@@ -1,4 +1,4 @@
-# Edge Reader - NVDA Add-on
+﻿# Edge Reader - NVDA Add-on
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![NVDA Compatibility](https://img.shields.io/badge/NVDA-2019.3%20--%202026.1-green.svg)](https://www.nvaccess.org/)
@@ -11,6 +11,7 @@
 
 - **Document to Audio Conversion**: Convert entire books or documents (`.txt`, `.pdf`, `.docx`) into MP3 audio tracks.
 - **Direct Selection / Clipboard to MP3**: Quickly compile selected screen text or clipboard text to MP3.
+- **Smart Compile Enhancement**: Convert files directly from Windows Explorer just by focusing on them, without needing to copy them to the clipboard (Ctrl+C). The add-on will automatically detect the file path.
 - **Smart Multi-Language Support**: Automatically detects multiple languages in a single text. You can easily toggle this auto-detection on or off in the add-on settings.
 - **Language-Specific Voices**: Assign and manage multiple favorite voices for each language separately.
 - **Regional Variants**: Languages with multiple regions (e.g., US vs UK English, Spanish, Arabic) are presented as distinct options for precise voice selection.

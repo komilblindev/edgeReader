@@ -1,4 +1,4 @@
-# Edge Reader
+﻿# Edge Reader
 
 Edge Reader is an NVDA add-on that allows you to easily save any spoken text as high-quality MP3 files using Microsoft Edge Neural TTS voices.
 
@@ -8,6 +8,7 @@ Edge Reader is an NVDA add-on that allows you to easily save any spoken text as 
 * **Regional Variants:** Languages with multiple regional variants (e.g., US vs UK English, Spanish, etc.) are now presented as separate options for more precise voice selection.
 * **Favorite Voices:** Pin your most frequently used voices to the top by adding them to the Favorites list in the settings.
 * **New Shortcut:** Convert currently selected text directly to MP3 without manually copying it.
+* **Smart Compile Enhancement:** You can now convert files directly from Windows Explorer just by focusing on them, without needing to copy them to the clipboard (Ctrl+C). The add-on will automatically detect the file path.
 
 ## Keyboard Shortcuts
 * **Unassigned:** Toggles the MP3 auto-saving mode (saves every utterance).

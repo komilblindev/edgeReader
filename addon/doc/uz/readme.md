@@ -1,4 +1,4 @@
-# Edge Reader 
+﻿# Edge Reader 
 
 Edge Reader - bu NVDA ekran o'quvchisi yordamida o'qilayotgan matnlarni sifatli MP3 fayllarga aylantirib beruvchi kengaytma. U Microsoft Edge brauzerining yuqori sifatli (Neural) ovozlarini ishlatadi.
 
@@ -8,6 +8,7 @@ Edge Reader - bu NVDA ekran o'quvchisi yordamida o'qilayotgan matnlarni sifatli 
 * **Mintaqaviy tillar:** Bir nechta mintaqaviy variantga ega tillar (masalan, AQSh va Britaniya ingliz tili, ispan tili va hk.) endi alohida ko'rsatiladi va har biriga alohida ovoz tanlash mumkin.
 * **Sevimli ovozlar:** O'zingiz ko'p ishlatadigan ovozlarni "Sevimli ovozlar" ro'yxatiga qo'shishingiz mumkin, shunda ular tillar ro'yxatida birinchi bo'lib chiqib turadi.
 * **Yangi tugma:** Endi istalgan joyda matnni shunchaki belgilab (Ctrl+C ni bosmasdan) to'g'ridan to'g'ri MP3 qilsa bo'ladi!
+* **Aqlli kompylyatsiyaning yangilanishi:** Endi Windows Explorer (Provodnik) da fayl ustida turganda uni buferga nusxalamasdan (Ctrl+C bosmasdan) to'g'ridan to'g'ri o'qish mumkin. Dastur fayl manzilini avtomatik aniqlaydi.
 
 ## Tezkor klavishlar
 * **Tugma biriktirilmagan:** MP3 avtomatik saqlash rejimini yoqish yoki o'chirish. Bu yoqilganida NVDA ning o'qigan har bir gapi avtomatik MP3 qilib yozib boriladi.
