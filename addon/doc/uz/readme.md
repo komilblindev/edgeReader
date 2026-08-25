@@ -19,15 +19,13 @@ Edge Reader - bu NVDA ekran o'quvchisi yordamida o'qilayotgan matnlarni sifatli 
 * **Tugma biriktirilmagan:** Edge Reader sozlamalarini ochish.
 * **Tugma biriktirilmagan:** Aqlli kompylyatsiya (Smart compile) - belgilangan, diqqat markazidagi matnni, fayl yoki buferdagi matnni avtomatik aniqlab MP3 ga o'giradi.
 
-
-
 ### Qanday qilib tezkor klavishlarni biriktirish mumkin?
 Dastur funksiyalaridan foydalanish uchun o'zingizga qulay tugmalarni belgilab olishingiz kerak:
-1. **NVDA menyusini** oching (NVDA + N).
+1. **NVDA menyusini** oching (`NVDA + N`).
 2. **Sozlamalar (Preferences)** -> **Kirish ishoralari (Input Gestures)** bo'limiga kiring.
 3. Ro'yxatdan **Edge Reader** bo'limini topib, uni yoying.
 4. O'zingizga kerakli funksiyani tanlang (masalan, "Edge Reader sozlamalarini ochish").
-5. **Qo'shish (Add)** tugmasini bosing va o'zingiz xohlagan klavishlar kombinatsiyasini bosing (masalan, NVDA + Windows + E).
+5. **Qo'shish (Add)** tugmasini bosing va o'zingiz xohlagan klavishlar kombinatsiyasini bosing (masalan, `NVDA + Windows + E`).
 6. Chiqqan ro'yxatdan klaviatura turini (Stol kompyuteri, Noutbuk yoki barchasi uchun) tanlang.
 7. **OK** tugmasini bosib saqlang.
 
