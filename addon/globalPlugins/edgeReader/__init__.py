@@ -817,6 +817,32 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self._process_and_save(text, self._get_translated_prefix("Selection"))
 			return
 			
+		# 1.5. Selected file in Windows Explorer directly (without clipboard)
+		filepaths = None
+		try:
+			obj = api.getForegroundObject()
+			if obj and obj.appModule and obj.appModule.appName.lower() == 'explorer':
+				import comtypes.client
+				import win32gui
+				shell = comtypes.client.CreateObject("Shell.Application")
+				for win in shell.Windows():
+					if win.hwnd == win32gui.GetForegroundWindow():
+						sel = win.Document.SelectedItems()
+						if sel.Count > 0:
+							filepaths = []
+							for i in range(sel.Count):
+								filepaths.append(sel.Item(i).Path)
+						break
+		except Exception:
+			pass
+			
+		if filepaths and len(filepaths) > 0:
+			filepath = filepaths[0]
+			ext = filepath.lower().split('.')[-1]
+			if ext in ['txt', 'pdf', 'docx']:
+				threading.Thread(target=self._compile_from_path, args=(filepath,)).start()
+				return
+			
 		# 2. File in clipboard using ctypes
 		filepaths = None
 		CF_HDROP = 15
