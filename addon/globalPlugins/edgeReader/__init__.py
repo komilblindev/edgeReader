@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import globalPluginHandler
 import speech
+import speech.manager
 import api
 import ui
 import os
@@ -328,7 +329,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.last_text = ""
 		# Patch speech.speak
 		try:
-			import speech.manager
 			self.orig_speak = speech.manager.speechManager.speak
 			speech.manager.speechManager.speak = self.handle_speech
 			self.using_manager = True
@@ -342,9 +342,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate(self):
 		if getattr(self, "using_manager", False):
 			try:
-				import speech.manager
 				speech.manager.speechManager.speak = self.orig_speak
-			except:
+			except Exception:
 				pass
 		else:
 			speech.speak = self.orig_speak
