@@ -2,7 +2,7 @@
 
 Edge Reader is an NVDA add-on that allows you to easily save any spoken text as high-quality MP3 files using Microsoft Edge Neural TTS voices.
 
-## What's New (v1.2.4)
+## What's New (v1.2.7)
 * **Multi-Language Toggle:** Added an option in settings to turn multi-language reading (auto language detection) on or off. When disabled, the language selection dialog no longer appears.
 * **Language-Specific Voices:** You can now select and save favorite voices for each language separately.
 * **Regional Variants:** Languages with multiple regional variants (e.g., US vs UK English, Spanish, etc.) are now presented as separate options for more precise voice selection.
@@ -40,3 +40,15 @@ NVDA Menu -> Preferences -> Settings -> Edge Reader:
 * **Email**: hamzayevkomil52@gmail.com
 * **Telegram Channel**: [@it_help_uz](https://t.me/it_help_uz)
 * **GitHub Repository**: [edgeReader](https://github.com/komilblindev/edgeReader)
+
+
+## Third-Party Components & Licenses
+
+This add-on bundles several open-source libraries:
+* **edge-tts**: (GPL-3.0) Microsoft Edge TTS API wrapper.
+* **aiohttp, yarl, multidict**: (Apache-2.0) HTTP components.
+* **python-docx, langdetect, tabulate**: (MIT) Document & language utilities.
+* **PyPDF2, lxml**: (BSD-3-Clause) PDF and XML processing.
+* **certifi**: (MPL-2.0) SSL certificates.
+
+Their inclusion complies with their respective licenses.

@@ -1,4 +1,4 @@
-﻿# Edge Reader - NVDA Add-on
+# Edge Reader - NVDA Add-on
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![NVDA Compatibility](https://img.shields.io/badge/NVDA-2019.3%20--%202026.1-green.svg)](https://www.nvaccess.org/)
@@ -46,3 +46,20 @@
 - **Email**: hamzayevkomil52@gmail.com
 - **Telegram Channel**: [@it_help_uz](https://t.me/it_help_uz)
 - **GitHub Repository**: [komilblindev/edgeReader](https://github.com/komilblindev/edgeReader)
+
+---
+
+## 📄 Third-Party Components & Licenses
+
+This add-on uses the following open-source third-party libraries, which are bundled with the add-on:
+
+*   **edge-tts**: (GPL-3.0 License) Used for communicating with Microsoft Edge TTS API.
+*   **aiohttp, aiosignal, yarl, multidict**: (Apache License 2.0) Used for asynchronous HTTP requests.
+*   **python-docx**: (MIT License) Used to extract text from DOCX files.
+*   **PyPDF2**: (BSD-3-Clause License) Used to extract text from PDF files.
+*   **langdetect**: (MIT License) Used for automatic language detection.
+*   **lxml**: (BSD-3-Clause License) XML and HTML processing.
+*   **tabulate**: (MIT License) Formatting data.
+*   **certifi**: (MPL-2.0 License) SSL certificates.
+
+The inclusion of these libraries complies with their respective licenses. Their source code can be found at their official repositories on PyPI and GitHub.
