@@ -1,13 +1,13 @@
-# Edge Reader - NVDA Add-on
+﻿# Edge Reader - NVDA Add-on
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![NVDA Compatibility](https://img.shields.io/badge/NVDA-2019.3%20--%202026.1-green.svg)](https://www.nvaccess.org/)
+[![NVDA Compatibility](https://img.shields.io/badge/NVDA-2024.1%20--%202026.1-green.svg)](https://www.nvaccess.org/)
 
 **Edge Reader** is a specialized NVDA screen reader add-on designed to convert spoken text, clipboard content, selected text, and whole documents (PDF, DOCX, TXT) into high-quality MP3 audio files using **Microsoft Edge Neural TTS** voices.
 
 ---
 
-## 🌟 Key Features
+## рџЊџ Key Features
 
 - **Document to Audio Conversion**: Convert entire books or documents (`.txt`, `.pdf`, `.docx`) into MP3 audio tracks.
 - **Direct Selection / Clipboard to MP3**: Quickly compile selected screen text or clipboard text to MP3.
@@ -19,11 +19,11 @@
 - **Favorite Voices**: Star and organize preferred voices by language for fast selection.
 - **Transliteration & Pronunciation Tools**: Cyrillic to Latin transliteration, Roman numeral pronunciation, and rate/pitch adjustments.
 - **Multi-language Interface**: Full support for Uzbek, Russian, and English interfaces.
-- **NVDA Compatibility**: Compatible with NVDA 2019.3 up to 2026.1+.
+- **NVDA Compatibility**: Compatible with NVDA 2024.1 up to 2026.1+.
 
 ---
 
-## ⌨️ Shortcuts
+## вЊЁпёЏ Shortcuts
 
 | Shortcut | Description |
 | :--- | :--- |
@@ -40,7 +40,7 @@
 
 ---
 
-## 👨‍💻 Developer & Contacts
+## рџ‘ЁвЂЌрџ’» Developer & Contacts
 
 - **Developer**: Komil Hamzayev
 - **Email**: hamzayevkomil52@gmail.com
@@ -49,7 +49,7 @@
 
 ---
 
-## 📄 Third-Party Components & Licenses
+## рџ“„ Third-Party Components & Licenses
 
 This add-on uses the following open-source third-party libraries, which are bundled with the add-on:
 
