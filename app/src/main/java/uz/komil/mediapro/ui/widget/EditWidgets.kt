@@ -206,10 +206,26 @@ fun HmsStepper(
             horizontalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Box(modifier = Modifier.weight(1f)) {
+                var rawText by remember(value) { mutableStateOf(value.toClock()) }
                 OutlinedTextField(
-                    value = value.toClock(),
-                    onValueChange = {},
-                    readOnly = true,
+                    value = rawText,
+                    onValueChange = { input ->
+                        rawText = input
+                        val parsed = Hms.parse(input)
+                        if (parsed != null) {
+                            onSet(clamp(parsed))
+                        } else {
+                            val digitsOnly = input.filter { it.isDigit() }
+                            if (digitsOnly.length in 1..6) {
+                                val padded = digitsOnly.padStart(6, '0')
+                                val h = padded.substring(0, 2).toInt()
+                                val m = padded.substring(2, 4).toInt()
+                                val s = padded.substring(4, 6).toInt()
+                                onSet(clamp(Hms(h, m, s)))
+                            }
+                        }
+                    },
+                    readOnly = false,
                     textStyle = TextStyle(fontFamily = FontFamily.Monospace, fontSize = 18.sp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,

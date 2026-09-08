@@ -37,7 +37,7 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 smart-exception-java = { group = "com.arthenica", name = "smart-exception-java", version.ref = "smartException" }
 ffmpeg-kit-audio = { group = "dev.ffmpegkit-maintained", name = "ffmpeg-kit-audio", version.ref = "ffmpeg" }
-ffmpeg-kit-full = { group = "dev.ffmpegkit-maintained", name = "ffmpeg-kit-full", version.ref = "ffmpeg" }
+ffmpeg-kit-https = { group = "dev.ffmpegkit-maintained", name = "ffmpeg-kit-https", version.ref = "ffmpeg" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
