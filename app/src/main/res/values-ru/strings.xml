@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Media Pro</string>
+    <string name="tab_browser">Браузер</string>
+    <string name="tab_downloads">Загрузки</string>
+    <string name="tab_editor">Редактор</string>
+    <string name="tab_settings">Настройки</string>
+
+    <!-- Operation folders under Downloads/MVD/ (MediaFolder labels) -->
+    <string name="folder_downloads">Загрузки</string>
+    <string name="folder_trimmed">Обрезка</string>
+    <string name="folder_edited">Обработка</string>
+    <string name="folder_mixed">Миксы</string>
+    <string name="folder_audio">Аудио</string>
+    <string name="folder_recordings">Записи</string>
+
+    <!-- Foreground job notification -->
+    <string name="notif_channel">Процессы MediaPro</string>
+    <string name="notif_running">Выполняется…</string>
+
+    <!-- ============ Editor ============ -->
+    <string name="ed_intro">Выберите видео или аудиофайл и редактируйте: обрезка, удаление интервалов, замена/микс звука, конвертация.</string>
+    <string name="ed_pick_file">Выбрать файл</string>
+    <string name="ed_pick_failed">Не удалось прочитать файл</string>
+    <string name="ed_duration">Длительность</string>
+    <string name="ed_change_file">Заменить файл</string>
+    <string name="ed_need_file">Сначала выберите медиафайл — инструменты ниже откроются.</string>
+    <string name="ed_op_trim">Обрезка</string>
+    <string name="ed_op_trim_desc">Оставить один временной диапазон файла.</string>
+    <string name="ed_op_remove">Удаление интервалов</string>
+    <string name="ed_op_remove_desc">Удалить до 10 диапазонов за раз.</string>
+    <string name="ed_op_mix">Замена / микс аудио</string>
+    <string name="ed_op_mix_desc">Наложить другой аудиотрек на файл.</string>
+    <string name="ed_op_convert">Конвертация</string>
+    <string name="ed_op_convert_desc">Сменить контейнер или извлечь аудио.</string>
+    <string name="ed_from">Начало</string>
+    <string name="ed_to">Конец</string>
+    <string name="ed_bad_range">Конец должен быть позже начала</string>
+    <string name="ed_run_trim">Обрезать и сохранить</string>
+    <string name="ed_run_remove">Удалить и сохранить</string>
+    <string name="ed_run_convert">Конвертировать и сохранить</string>
+    <string name="ed_run_mix">Смикшировать и сохранить</string>
+    <string name="ed_add_interval">+ Добавить интервал</string>
+    <string name="ed_new_interval">Новый интервал</string>
+    <string name="ed_intervals">Интервалы для удаления</string>
+    <string name="ed_no_intervals">Сначала добавьте хотя бы один интервал</string>
+    <string name="ed_need_intervals">Сначала добавьте хотя бы один интервал</string>
+    <string name="ed_max_10">Максимум 10 интервалов</string>
+    <string name="ed_format">Формат вывода</string>
+    <string name="ed_need_audio2">Сначала выберите второй аудиофайл</string>
+    <string name="ed_second_audio">Выбрать накладываемое аудио</string>
+    <string name="ed_audio2_loaded">Накладываемое аудио:</string>
+    <string name="ed_volume_base">Громкость основы</string>
+    <string name="ed_volume_add">Громкость добавленного аудио</string>
+    <string name="ed_mode_mix">Микс</string>
+    <string name="ed_mode_replace">Замена</string>
+    <string name="ed_started">Запущено — прогресс в Загрузках</string>
+    <string name="ed_trial_blocked">Достигнут лимит бесплатного периода для этого действия</string>
+
+    <!-- ============ Downloads hub ============ -->
+    <string name="dl_empty">Пока нет задач. Загрузки, записи и правки появятся здесь.</string>
+    <string name="dl_running">Выполняется</string>
+    <string name="dl_cancel">Остановить</string>
+    <string name="dl_done">Готово</string>
+    <string name="dl_failed">Ошибка</string>
+    <string name="dl_canceled">Остановлено</string>
+    <string name="dl_open">Открыть</string>
+    <string name="dl_share">Поделиться</string>
+    <string name="dl_copy">Копировать ссылку</string>
+    <string name="dl_open_fail">Не удалось открыть файл</string>
+    <string name="dl_copied">Ссылка скопирована</string>
+
+    <!-- ============ Browser ============ -->
+    <string name="brw_hint">Введите или вставьте URL</string>
+    <string name="brw_open">Перейти</string>
+    <string name="brw_back">Назад</string>
+    <string name="brw_forward">Вперёд</string>
+    <string name="brw_refresh">Обновить</string>
+    <string name="brw_direct">Прямое медиа</string>
+    <string name="brw_download">Скачать</string>
+    <string name="brw_record">Запись эфира</string>
+    <string name="brw_media_count">Найдено: %1$d медиа</string>
+    <string name="brw_quality">Качество</string>
+    <string name="brw_best">Лучшее (авто)</string>
+    <string name="brw_quality_title">Выберите качество потока</string>
+    <string name="brw_kind_hls">HLS</string>
+    <string name="brw_kind_dash">DASH</string>
+    <string name="brw_kind_video">Видео</string>
+    <string name="brw_kind_audio">Аудио</string>
+    <string name="brw_ext_original">Оригинал</string>
+    <string name="brw_err_parse">Не удалось прочитать качества потока</string>
+    <string name="brw_rec_confirm_title">Запись эфира</string>
+    <string name="brw_rec_confirm_text">Записать этот прямой эфир? Он идёт, пока вы не нажмёте «Остановить» в Загрузках.</string>
+    <string name="brw_rec_confirm_yes">Записать</string>
+    <string name="brw_rec_confirm_no">Нет</string>
+
+    <!-- ============ Settings ============ -->
+    <string name="set_lang">Язык приложения</string>
+    <string name="set_lang_system">Системный язык</string>
+    <string name="set_license">Лицензия</string>
+    <string name="set_dev_id">ID устройства</string>
+    <string name="set_status_free">Бесплатный период</string>
+    <string name="set_status_lifetime">Полная версия без ограничений</string>
+    <string name="set_status_until">Активна до %1$s</string>
+    <string name="set_rec_left">Запись: осталось %1$s</string>
+    <string name="set_dl_left">Скачиваний осталось: %1$d</string>
+    <string name="set_edits_left">Правок осталось: %1$d</string>
+    <string name="set_coupon_ph">Введите код купона</string>
+    <string name="set_activate">Активировать</string>
+    <string name="set_code_ok_l">Лицензия активирована навсегда</string>
+    <string name="set_code_ok_d">Лицензия активирована до %1$s</string>
+    <string name="set_code_bad">Неверный код купона</string>
+    <string name="set_code_wrongdev">Купон привязан к другому устройству</string>
+    <string name="set_code_existing">Уже активна лучшая лицензия</string>
+    <string name="set_errors">Ошибки</string>
+    <string name="set_no_errors">Ошибки не записаны</string>
+    <string name="set_view">Просмотр</string>
+    <string name="set_share">Поделиться</string>
+    <string name="set_clear">Очистить журнал</string>
+    <string name="set_log_cleared">Журнал ошибок очищен</string>
+    <string name="set_about">О приложении</string>
+    <string name="set_version">MediaPro 1.0.0</string>
+    <string name="set_detection_title">Обнаружение медиа и загрузка</string>
+    <string name="set_max_results">Лимит найденных медиафайлов</string>
+    <string name="set_max_results_desc">Количество отображаемых медиафайлов в панели браузера (как в плагине).</string>
+    <string name="set_results_all">Все (без ограничений)</string>
+    <string name="set_results_count">%1$d</string>
+    <string name="rec_dialog_title">Запись прямого эфира</string>
+    <string name="rec_time_title">Длительность записи (таймер)</string>
+    <string name="rec_time_unlimited">Без ограничений (до нажатия Стоп)</string>
+    <string name="rec_time_hint">ЧЧ:ММ:СС или минуты (напр. 00:30:00 или 15)</string>
+    <string name="rec_time_desc">По истечении времени запись автоматически завершится и сохранится. Вы также можете остановить запись в любой момент кнопкой \'СТОП\'.</string>
+    <string name="rec_filename">Имя файла</string>
+    <string name="rec_btn_start">Начать запись</string>
+    <string name="rec_btn_stop">Остановить (STOP)</string>
+    <string name="rec_active_banner">🔴 Идет запись прямого эфира</string>
+    <string name="rec_stop_desc">Остановить запись и сохранить</string>
+    <string name="brw_history">История</string>
+    <string name="brw_history_title">История сайтов</string>
+    <string name="brw_history_empty">История пуста</string>
+    <string name="brw_history_clear">Очистить историю</string>
+    <string name="brw_history_cleared">История очищена</string>
+    <string name="brw_adblock">Блокировка рекламы</string>
+    <string name="brw_adblock_on">Блокировка рекламы включена</string>
+    <string name="brw_adblock_off">Блокировка рекламы выключена</string>
+    <string name="brw_delete_item">Удалить</string>
+
+    <!-- Scheduled live recording -->
+    <string name="set_sched_title">Запись по расписанию (Автоплан)</string>
+    <string name="set_sched_desc">Автоматическая запись прямого эфира по 7-дневной неделе, 5 будним дням или точной дате.</string>
+    <string name="set_sched_add">Добавить расписание</string>
+    <string name="set_sched_empty">Нет запланированных записей</string>
+    <string name="set_sched_type_7">7 дней (Ежедневно)</string>
+    <string name="set_sched_type_5">5 дней (Будни: Пн-Пт)</string>
+    <string name="set_sched_type_date">Конкретная дата</string>
+    <string name="set_sched_date_hint">Дата (напр. 21-09-2026)</string>
+    <string name="set_sched_time_hint">Время начала (напр. 20:00)</string>
+    <string name="set_sched_dur_hint">Длительность в минутах (напр. 60)</string>
+    <string name="set_sched_url_hint">URL потока</string>
+    <string name="set_sched_name_hint">Название задачи</string>
+    <string name="set_sched_format">Формат</string>
+    <string name="set_sched_save">Сохранить расписание</string>
+    <string name="set_sched_active">Активно</string>
+    <string name="set_sched_inactive">Отключено</string>
+    <string name="set_sched_hour">Час</string>
+    <string name="set_sched_minute">Минута</string>
+    <string name="set_sched_time_presets">Готовое время</string>
+    <string name="set_sched_dur_presets">Готовая длительность</string>
+    <string name="set_sched_date_quick">Быстрая дата</string>
+    <string name="set_sched_today">Сегодня</string>
+    <string name="set_sched_tomorrow">Завтра</string>
+
+    <!-- Cache / Storage management -->
+    <string name="set_cache_title">Временный кэш</string>
+    <string name="set_cache_desc">Промежуточные файлы обрезки, удаления фрагментов и замены аудио автоматически удаляются при сохранении. Вы также можете очистить кэш вручную.</string>
+    <string name="set_cache_size">Размер кэша: %s</string>
+    <string name="set_cache_clean_btn">Очистить кэш</string>
+    <string name="set_cache_cleared">Кэш успешно очищен</string>
+    <string name="btn_cancel">Отмена</string>
+</resources>

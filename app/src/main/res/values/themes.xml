@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose draws the whole UI; this platform theme only needs to avoid an
+         ActionBar and keep a light window background behind Compose. -->
+    <style name="Theme.MediaPro" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

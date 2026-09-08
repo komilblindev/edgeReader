@@ -1,0 +1,16 @@
+.gradle/
+.kotlin/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+*.zip
+scratch/
+# Release signing — NEVER commit. Leaking these lets anyone sign
+# APKs as "MediaPro" with the owner's key.
+keystore.properties
+keystore/

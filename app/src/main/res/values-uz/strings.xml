@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Media Pro</string>
+    <string name="tab_browser">Brauzer</string>
+    <string name="tab_downloads">Yuklamalar</string>
+    <string name="tab_editor">Tahrirlash</string>
+    <string name="tab_settings">Sozlamalar</string>
+
+    <!-- Operation folders under Downloads/MVD/ (MediaFolder labels) -->
+    <string name="folder_downloads">Yuklamalar</string>
+    <string name="folder_trimmed">Kesilganlar</string>
+    <string name="folder_edited">Tahrirlanganlar</string>
+    <string name="folder_mixed">Aralashganlar</string>
+    <string name="folder_audio">Audio</string>
+    <string name="folder_recordings">Yozuvlar</string>
+
+    <!-- Foreground job notification -->
+    <string name="notif_channel">MediaPro jarayonlari</string>
+    <string name="notif_running">Bajarilmoqda…</string>
+
+    <!-- ============ Editor ============ -->
+    <string name="ed_intro">Video yoki audio fayl tanlang va tahrirlang: kesish, intervallarni o\'chirish, audio almashtirish/aralashtirish, konvertatsiya.</string>
+    <string name="ed_pick_file">Fayl tanlash</string>
+    <string name="ed_pick_failed">Faylni o\'qib bo\'lmadi</string>
+    <string name="ed_duration">Davomiyligi</string>
+    <string name="ed_change_file">Faylni almashtirish</string>
+    <string name="ed_need_file">Avval media fayl tanlang — quyidagi vositalar ochiladi.</string>
+    <string name="ed_op_trim">Kesish (Trim)</string>
+    <string name="ed_op_trim_desc">Faylning bitta vaqt oralig\'ini qoldirish.</string>
+    <string name="ed_op_remove">Intervallarni kesish</string>
+    <string name="ed_op_remove_desc">Bir vaqtning o\'zida 10 tagacha intervalni o\'chirish.</string>
+    <string name="ed_op_mix">Audio almashtirish / aralashtirish</string>
+    <string name="ed_op_mix_desc">Fayl ustiga boshqa audio trek qo\'yish.</string>
+    <string name="ed_op_convert">Konvertatsiya</string>
+    <string name="ed_op_convert_desc">Formatni o\'zgartirish yoki audio chiqarib olish.</string>
+    <string name="ed_from">Boshlanish</string>
+    <string name="ed_to">Tugash</string>
+    <string name="ed_bad_range">Tugash boshlanishdan keyin bo\'lishi kerak</string>
+    <string name="ed_run_trim">Kesib saqlash</string>
+    <string name="ed_run_remove">Kesib saqlash</string>
+    <string name="ed_run_convert">O\'zgartirib saqlash</string>
+    <string name="ed_run_mix">Aralashtirib saqlash</string>
+    <string name="ed_add_interval">+ Interval qo\'shish</string>
+    <string name="ed_new_interval">Yangi interval</string>
+    <string name="ed_intervals">O\'chiriladigan intervallar</string>
+    <string name="ed_no_intervals">Kamida bitta oraliq qo\'shing</string>
+    <string name="ed_need_intervals">Kamida bitta oraliq qo\'shing</string>
+    <string name="ed_max_10">Ko\'pi bilan 10 ta interval</string>
+    <string name="ed_format">Chiqish formati</string>
+    <string name="ed_need_audio2">Avval ikkinchi audio faylni tanlang</string>
+    <string name="ed_second_audio">Overlay audio tanlash</string>
+    <string name="ed_audio2_loaded">Overlay audio:</string>
+    <string name="ed_volume_base">Asosiy ovoz balandligi</string>
+    <string name="ed_volume_add">Qo\'shilgan audio balandligi</string>
+    <string name="ed_mode_mix">Aralashtirish</string>
+    <string name="ed_mode_replace">Almashtirish</string>
+    <string name="ed_started">Boshlandi — jarayon Yuklamalarda kuzatiladi</string>
+    <string name="ed_trial_blocked">Bu amal uchun bepul sinov chegarasi tugadi</string>
+
+    <!-- ============ Downloads hub ============ -->
+    <string name="dl_empty">Hozircha jarayonlar yo\'q. Yuklab olishlar, yozuvlar va tahrirlar shu yerda ko\'rinadi.</string>
+    <string name="dl_running">Bajarilmoqda</string>
+    <string name="dl_cancel">To\'xtatish</string>
+    <string name="dl_done">Tayyor</string>
+    <string name="dl_failed">Xato</string>
+    <string name="dl_canceled">To\'xtatildi</string>
+    <string name="dl_open">Ochish</string>
+    <string name="dl_share">Ulashish</string>
+    <string name="dl_copy">Havolani nusxalash</string>
+    <string name="dl_open_fail">Faylni ochib bo\'lmadi</string>
+    <string name="dl_copied">Havola nusxalandi</string>
+
+    <!-- ============ Browser ============ -->
+    <string name="brw_hint">URL kiriting yoki joylashtiring</string>
+    <string name="brw_open">O\'tish</string>
+    <string name="brw_back">Orqaga</string>
+    <string name="brw_forward">Oldinga</string>
+    <string name="brw_refresh">Yangilash</string>
+    <string name="brw_direct">To\'g\'ridan-to\'g\'ri media</string>
+    <string name="brw_download">Yuklab olish</string>
+    <string name="brw_record">Jonli yozib olish</string>
+    <string name="brw_media_count">%1$d ta media topildi</string>
+    <string name="brw_quality">Sifat</string>
+    <string name="brw_best">Eng yaxshi (avtomatik)</string>
+    <string name="brw_quality_title">Oqim sifatini tanlang</string>
+    <string name="brw_kind_hls">HLS</string>
+    <string name="brw_kind_dash">DASH</string>
+    <string name="brw_kind_video">Video</string>
+    <string name="brw_kind_audio">Audio</string>
+    <string name="brw_ext_original">Asl</string>
+    <string name="brw_err_parse">Oqim sifatlarini o\'qib bo\'lmadi</string>
+    <string name="brw_rec_confirm_title">Jonli yozuv</string>
+    <string name="brw_rec_confirm_text">Bu jonli oqimni yozib olamanmi? To\'xtatish uchun Yuklamalardagi To\'xtatish tugmasini bosing.</string>
+    <string name="brw_rec_confirm_yes">Yozish</string>
+    <string name="brw_rec_confirm_no">Yo\'q</string>
+
+    <!-- ============ Settings ============ -->
+    <string name="set_lang">Ilova tili</string>
+    <string name="set_lang_system">Tizim tili</string>
+    <string name="set_license">Litsenziya</string>
+    <string name="set_dev_id">Qurilma ID</string>
+    <string name="set_status_free">Bepul sinov</string>
+    <string name="set_status_lifetime">Cheklovlarsiz to\'liq versiya</string>
+    <string name="set_status_until">%1$s gacha faol</string>
+    <string name="set_rec_left">Yozuv: %1$s qoldi</string>
+    <string name="set_dl_left">Yuklab olishlar: %1$d qoldi</string>
+    <string name="set_edits_left">Tahrirlar: %1$d qoldi</string>
+    <string name="set_coupon_ph">Kupon kodini kiriting</string>
+    <string name="set_activate">Faollashtirish</string>
+    <string name="set_code_ok_l">Litsenziya umrbod faollashtirildi</string>
+    <string name="set_code_ok_d">Litsenziya %1$s gacha faollashtirildi</string>
+    <string name="set_code_bad">Kupon kodi noto\'g\'ri</string>
+    <string name="set_code_wrongdev">Kupon boshqa qurilma uchun</string>
+    <string name="set_code_existing">Yaxshiroq litsenziya allaqachon faol</string>
+    <string name="set_errors">Xatolar</string>
+    <string name="set_no_errors">Xatolar qayd etilmagan</string>
+    <string name="set_view">Ko\'rish</string>
+    <string name="set_share">Ulashish</string>
+    <string name="set_clear">Jurnalni tozalash</string>
+    <string name="set_log_cleared">Xatolar jurnali tozalandi</string>
+    <string name="set_about">Ilova haqida</string>
+    <string name="set_version">MediaPro 1.0.0</string>
+    <string name="set_detection_title">Media aniqlash va yuklash sozlamalari</string>
+    <string name="set_max_results">Aniqlangan natijalar soni</string>
+    <string name="set_max_results_desc">Brauzer panelida bir vaqtda ko\'rsatiladigan aniqlangan media fayllar soni (plagindagi kabi).</string>
+    <string name="set_results_all">Hammasi (cheksiz)</string>
+    <string name="set_results_count">%1$d ta natija</string>
+    <string name="rec_dialog_title">Jonli efirni yozib olish</string>
+    <string name="rec_time_title">Yozib olish vaqti (davomiyligi / taymer)</string>
+    <string name="rec_time_unlimited">Cheksiz (qo\'lda to\'xtatguncha)</string>
+    <string name="rec_time_hint">HH:MM:SS yoki daqiqa (masalan 00:30:00 yoki 15)</string>
+    <string name="rec_time_desc">Belgilangan vaqt o\'tgach, yozib olish avtomatik to\'xtaydi va saqlanadi. Shuningdek istalgan payt \'To\'xtatish (STOP)\' tugmasi orqali to\'xtata olasiz.</string>
+    <string name="rec_filename">Fayl nomi</string>
+    <string name="rec_btn_start">Yozishni boshlash</string>
+    <string name="rec_btn_stop">To\'xtatish (STOP)</string>
+    <string name="rec_active_banner">🔴 Jonli efir yozib olinmoqda</string>
+    <string name="rec_stop_desc">Yozib olishni to\'xtatish va saqlash</string>
+    <string name="brw_history">Tarix</string>
+    <string name="brw_history_title">Saytlar tarixi</string>
+    <string name="brw_history_empty">Tarix bo\'sh</string>
+    <string name="brw_history_clear">Tarixni tozalash</string>
+    <string name="brw_history_cleared">Tarix tozalandi</string>
+    <string name="brw_adblock">Reklama to\'suvchi</string>
+    <string name="brw_adblock_on">Reklama to\'suvchi faol</string>
+    <string name="brw_adblock_off">Reklama to\'suvchi o\'chiq</string>
+    <string name="brw_delete_item">O\'chirish</string>
+
+    <!-- Scheduled live recording -->
+    <string name="set_sched_title">Rejali yozib olish (Avtomatik reja)</string>
+    <string name="set_sched_desc">Jonli efir yozishni 7 kunlik, 5 kunlik ish kunlari yoki aniq sana bo\'yicha avtomatik rejalashtirish.</string>
+    <string name="set_sched_add">Yangi reja qo\'shish</string>
+    <string name="set_sched_empty">Rejalashtirilgan yozuvlar yo\'q</string>
+    <string name="set_sched_type_7">7 kunlik (Har kuni)</string>
+    <string name="set_sched_type_5">5 kun (Ish kunlari: Du-Ju)</string>
+    <string name="set_sched_type_date">Aniq sana</string>
+    <string name="set_sched_date_hint">Sana (masalan 21-09-2026)</string>
+    <string name="set_sched_time_hint">Boshlanish vaqti (masalan 20:00)</string>
+    <string name="set_sched_dur_hint">Davomiyligi daqiqada (masalan 60)</string>
+    <string name="set_sched_url_hint">Oqim URL manzili</string>
+    <string name="set_sched_name_hint">Reja nomi</string>
+    <string name="set_sched_format">Format</string>
+    <string name="set_sched_save">Rejani saqlash</string>
+    <string name="set_sched_active">Faol</string>
+    <string name="set_sched_inactive">O\'chiq</string>
+    <string name="set_sched_hour">Soat</string>
+    <string name="set_sched_minute">Daqiqa</string>
+    <string name="set_sched_time_presets">Tayyor vaqtlar</string>
+    <string name="set_sched_dur_presets">Tayyor davomiyliklar</string>
+    <string name="set_sched_date_quick">Tezkor sana</string>
+    <string name="set_sched_today">Bugun</string>
+    <string name="set_sched_tomorrow">Ertaga</string>
+
+    <!-- Cache / Storage management -->
+    <string name="set_cache_title">Vaqtinchalik kesh xotirasi</string>
+    <string name="set_cache_desc">Qirqish, vaqt o\'chirish va audio almashtirishdagi oraliq fayllar saqlanishi bilan avtomatik o\'chiriladi. Istasangiz keshni qo\'lda ham tozalashingiz mumkin.</string>
+    <string name="set_cache_size">Kesh hajmi: %s</string>
+    <string name="set_cache_clean_btn">Keshni tozalash</string>
+    <string name="set_cache_cleared">Kesh xotirasi muvaffaqiyatli tozalandi</string>
+    <string name="btn_cancel">Bekor qilish</string>
+</resources>

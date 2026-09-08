@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Media Pro</string>
+    <string name="tab_browser">Browser</string>
+    <string name="tab_downloads">Downloads</string>
+    <string name="tab_editor">Editor</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Operation folders under Downloads/MVD/ (MediaFolder labels) -->
+    <string name="folder_downloads">Downloads</string>
+    <string name="folder_trimmed">Trimmed</string>
+    <string name="folder_edited">Edited</string>
+    <string name="folder_mixed">Mixed</string>
+    <string name="folder_audio">Audio</string>
+    <string name="folder_recordings">Recordings</string>
+
+    <!-- Foreground job notification -->
+    <string name="notif_channel">MediaPro jobs</string>
+    <string name="notif_running">Working…</string>
+
+    <!-- ============ Editor ============ -->
+    <string name="ed_intro">Pick a video or audio file and edit it: trim, cut intervals, replace or mix audio, convert.</string>
+    <string name="ed_pick_file">Choose file</string>
+    <string name="ed_pick_failed">Could not read this file</string>
+    <string name="ed_duration">Duration</string>
+    <string name="ed_change_file">Change file</string>
+    <string name="ed_need_file">Choose a media file first — the tools unlock below.</string>
+    <string name="ed_op_trim">Trim</string>
+    <string name="ed_op_trim_desc">Keep one time range of the file.</string>
+    <string name="ed_op_remove">Cut intervals</string>
+    <string name="ed_op_remove_desc">Remove up to 10 time ranges at once.</string>
+    <string name="ed_op_mix">Audio replace / mix</string>
+    <string name="ed_op_mix_desc">Put another audio track over the file.</string>
+    <string name="ed_op_convert">Convert</string>
+    <string name="ed_op_convert_desc">Change container or extract audio.</string>
+    <string name="ed_from">From</string>
+    <string name="ed_to">To</string>
+    <string name="ed_bad_range">End must be after start</string>
+    <string name="ed_run_trim">Trim and save</string>
+    <string name="ed_run_remove">Cut and save</string>
+    <string name="ed_run_convert">Convert and save</string>
+    <string name="ed_run_mix">Mix and save</string>
+    <string name="ed_add_interval">+ Add interval</string>
+    <string name="ed_new_interval">New interval</string>
+    <string name="ed_intervals">Intervals to remove</string>
+    <string name="ed_no_intervals">Add at least one interval first</string>
+    <string name="ed_need_intervals">Add at least one interval first</string>
+    <string name="ed_max_10">Maximum 10 intervals</string>
+    <string name="ed_format">Output format</string>
+    <string name="ed_need_audio2">Choose the second audio file first</string>
+    <string name="ed_second_audio">Choose overlay audio</string>
+    <string name="ed_audio2_loaded">Overlay audio:</string>
+    <string name="ed_volume_base">Base volume</string>
+    <string name="ed_volume_add">Added audio volume</string>
+    <string name="ed_mode_mix">Mix</string>
+    <string name="ed_mode_replace">Replace</string>
+    <string name="ed_started">Started — follow progress in Downloads</string>
+    <string name="ed_trial_blocked">Free trial limit reached for this action</string>
+
+    <!-- ============ Downloads hub ============ -->
+    <string name="dl_empty">No jobs yet. Downloads, recordings and edits appear here.</string>
+    <string name="dl_running">Working</string>
+    <string name="dl_cancel">Stop</string>
+    <string name="dl_done">Done</string>
+    <string name="dl_failed">Failed</string>
+    <string name="dl_canceled">Stopped</string>
+    <string name="dl_open">Open</string>
+    <string name="dl_share">Share</string>
+    <string name="dl_copy">Copy link</string>
+    <string name="dl_open_fail">Can\'t open this file</string>
+    <string name="dl_copied">Link copied</string>
+
+    <!-- ============ Browser ============ -->
+    <string name="brw_hint">Type or paste a URL</string>
+    <string name="brw_open">Go</string>
+    <string name="brw_back">Back</string>
+    <string name="brw_forward">Forward</string>
+    <string name="brw_refresh">Reload</string>
+    <string name="brw_direct">Direct media</string>
+    <string name="brw_download">Download</string>
+    <string name="brw_record">Record live</string>
+    <string name="brw_media_count">%1$d media found</string>
+    <string name="brw_quality">Quality</string>
+    <string name="brw_best">Best (auto)</string>
+    <string name="brw_quality_title">Choose stream quality</string>
+    <string name="brw_kind_hls">HLS</string>
+    <string name="brw_kind_dash">DASH</string>
+    <string name="brw_kind_video">Video</string>
+    <string name="brw_kind_audio">Audio</string>
+    <string name="brw_ext_original">Original</string>
+    <string name="brw_err_parse">Could not read stream qualities</string>
+    <string name="brw_rec_confirm_title">Live recording</string>
+    <string name="brw_rec_confirm_text">Record this live stream? It keeps running until you press Stop in Downloads.</string>
+    <string name="brw_rec_confirm_yes">Record</string>
+    <string name="brw_rec_confirm_no">No</string>
+
+    <!-- ============ Settings ============ -->
+    <string name="set_lang">App language</string>
+    <string name="set_lang_system">System default</string>
+    <string name="set_license">License</string>
+    <string name="set_dev_id">Device ID</string>
+    <string name="set_status_free">Free trial</string>
+    <string name="set_status_lifetime">Full Lifetime Version (Unrestricted)</string>
+    <string name="set_status_until">Active until %1$s</string>
+    <string name="set_rec_left">Recording left: %1$s</string>
+    <string name="set_dl_left">Downloads left: %1$d</string>
+    <string name="set_edits_left">Edits left: %1$d</string>
+    <string name="set_coupon_ph">Enter coupon code</string>
+    <string name="set_activate">Activate</string>
+    <string name="set_code_ok_l">License activated for life</string>
+    <string name="set_code_ok_d">License activated until %1$s</string>
+    <string name="set_code_bad">Wrong coupon code</string>
+    <string name="set_code_wrongdev">Coupon belongs to another device</string>
+    <string name="set_code_existing">A better license is already active</string>
+    <string name="set_errors">Errors</string>
+    <string name="set_no_errors">No errors recorded</string>
+    <string name="set_view">View</string>
+    <string name="set_share">Share</string>
+    <string name="set_clear">Clear log</string>
+    <string name="set_log_cleared">Error log cleared</string>
+    <string name="set_about">About</string>
+    <string name="set_version">MediaPro 1.0.0</string>
+    <string name="set_detection_title">Media Detection &amp; Downloads</string>
+    <string name="set_max_results">Detected media results limit</string>
+    <string name="set_max_results_desc">Limit the number of detected media items displayed in the browser panel, similar to browser extensions.</string>
+    <string name="set_results_all">All (unlimited)</string>
+    <string name="set_results_count">%1$d items</string>
+    <string name="rec_dialog_title">Record live stream</string>
+    <string name="rec_time_title">Recording duration (timer)</string>
+    <string name="rec_time_unlimited">Unlimited (manual stop)</string>
+    <string name="rec_time_hint">HH:MM:SS or minutes (e.g. 00:30:00 or 15)</string>
+    <string name="rec_time_desc">When the set duration expires, recording automatically stops and saves. You can also stop anytime using the STOP button.</string>
+    <string name="rec_filename">File name</string>
+    <string name="rec_btn_start">Start recording</string>
+    <string name="rec_btn_stop">STOP</string>
+    <string name="rec_active_banner">🔴 Recording live stream</string>
+    <string name="rec_stop_desc">Stop recording and save file</string>
+    <string name="brw_history">History</string>
+    <string name="brw_history_title">Browsing history</string>
+    <string name="brw_history_empty">History is empty</string>
+    <string name="brw_history_clear">Clear history</string>
+    <string name="brw_history_cleared">History cleared</string>
+    <string name="brw_adblock">Ad Blocker</string>
+    <string name="brw_adblock_on">Ad Blocker active</string>
+    <string name="brw_adblock_off">Ad Blocker disabled</string>
+    <string name="brw_delete_item">Delete</string>
+
+    <!-- Scheduled live recording -->
+    <string name="set_sched_title">Scheduled Recording (Automatic)</string>
+    <string name="set_sched_desc">Schedule automatic live stream recordings by week, workdays, or specific date.</string>
+    <string name="set_sched_add">Add Schedule</string>
+    <string name="set_sched_empty">No scheduled recordings yet</string>
+    <string name="set_sched_type_7">7 Days (Daily)</string>
+    <string name="set_sched_type_5">5 Days (Workdays: Mon-Fri)</string>
+    <string name="set_sched_type_date">Specific Date</string>
+    <string name="set_sched_date_hint">Date (e.g. 21-09-2026)</string>
+    <string name="set_sched_time_hint">Start time (e.g. 20:00)</string>
+    <string name="set_sched_dur_hint">Duration in minutes (e.g. 60)</string>
+    <string name="set_sched_url_hint">Stream URL</string>
+    <string name="set_sched_name_hint">Schedule name / Title</string>
+    <string name="set_sched_format">Format</string>
+    <string name="set_sched_save">Save Schedule</string>
+    <string name="set_sched_active">Active</string>
+    <string name="set_sched_inactive">Inactive</string>
+    <string name="set_sched_hour">Hour</string>
+    <string name="set_sched_minute">Minute</string>
+    <string name="set_sched_time_presets">Preset times</string>
+    <string name="set_sched_dur_presets">Preset durations</string>
+    <string name="set_sched_date_quick">Quick date</string>
+    <string name="set_sched_today">Today</string>
+    <string name="set_sched_tomorrow">Tomorrow</string>
+
+    <!-- Cache / Storage management -->
+    <string name="set_cache_title">Temporary Cache</string>
+    <string name="set_cache_desc">Intermediate files from trimming, cutting, and audio replacement are automatically removed upon saving. You can also manually clear the cache anytime.</string>
+    <string name="set_cache_size">Cache size: %s</string>
+    <string name="set_cache_clean_btn">Clear Cache</string>
+    <string name="set_cache_cleared">Cache cleared successfully</string>
+    <string name="btn_cancel">Cancel</string>
+</resources>
