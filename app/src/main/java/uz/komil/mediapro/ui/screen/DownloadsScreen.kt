@@ -87,6 +87,7 @@ fun DownloadsScreen(contentPadding: PaddingValues) {
                     uri = itm.record.savedUri,
                     sourceUrl = itm.record.sourceUrl,
                     sizeBytes = itm.record.sizeBytes,
+                    durationSec = itm.record.durationSec,
                     error = itm.record.error,
                     onCancel = { JobManager.cancel(itm.record.id) }
                 )
@@ -108,6 +109,7 @@ private fun DownloadRow(
     uri: String,
     sourceUrl: String,
     sizeBytes: Long,
+    durationSec: Long,
     error: String,
     onCancel: () -> Unit
 ) {
@@ -172,8 +174,13 @@ private fun DownloadRow(
                     )
                 }
                 status == JobStatus.DONE -> {
+                    val meta = listOfNotNull(
+                        durationSec.takeIf { it > 0 }?.let { TimeFmt.compact(it * 1000L) },
+                        stringResource(R.string.dl_done),
+                        bytesLabel(sizeBytes).ifBlank { null }
+                    ).joinToString("  ")
                     Text(
-                        stringResource(R.string.dl_done) + "  " + bytesLabel(sizeBytes),
+                        meta,
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.primary
                     )

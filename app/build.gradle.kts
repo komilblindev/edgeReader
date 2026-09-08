@@ -123,7 +123,7 @@ dependencies {
     // Native FFmpeg & SmartException (smart-exception-java is required by FFmpegKit
     // at runtime to avoid NoClassDefFoundError: com.arthenica.smartexception.java.Exceptions).
     implementation(libs.smart.exception.java)
-    implementation(libs.ffmpeg.kit.audio)
+    implementation(libs.ffmpeg.kit.full)
 
     testImplementation(libs.junit)
 }

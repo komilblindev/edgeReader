@@ -26,6 +26,7 @@ data class MediaRecord(
     val savedUri: String = "",  // content:// or file path for API 28
     val mime: String = "",
     val sizeBytes: Long = 0L,
+    val durationSec: Long = 0L, // finished file's play time (ffprobe); 0 = unknown/live
     val progress: Int = 0,      // 0..100 while running
     val error: String = "",
     // Editor op settings (trim range / cut intervals / mix volumes / output
@@ -70,6 +71,7 @@ object MediaHistory {
                     put("savedUri", r.savedUri)
                     put("mime", r.mime)
                     put("sizeBytes", r.sizeBytes)
+                    put("durationSec", r.durationSec)
                     put("error", r.error)
                     put("params", r.params)
                     put("createdAtMs", r.createdAtMs)
@@ -97,6 +99,7 @@ object MediaHistory {
                         savedUri = o.optString("savedUri"),
                         mime = o.optString("mime"),
                         sizeBytes = o.optLong("sizeBytes"),
+                        durationSec = o.optLong("durationSec"),
                         error = o.optString("error"),
                         params = o.optString("params"),
                         createdAtMs = o.optLong("createdAtMs", System.currentTimeMillis())

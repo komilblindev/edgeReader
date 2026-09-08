@@ -223,7 +223,7 @@ object MediaEngine {
             a.add("-vn")
             a.add("-acodec")
             a.add(audioCodecFor(targetExt))
-        } else if (targetExt == "mkv") {
+        } else if (targetExt == "mkv" || targetExt == "ts") {
             a.add("-c")
             a.add("copy")
         } else {

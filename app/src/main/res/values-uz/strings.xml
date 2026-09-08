@@ -72,6 +72,7 @@
 
     <!-- ============ Browser ============ -->
     <string name="brw_hint">URL kiriting yoki joylashtiring</string>
+    <string name="brw_copy">Nusxa</string>
     <string name="brw_open">O\'tish</string>
     <string name="brw_back">Orqaga</string>
     <string name="brw_forward">Oldinga</string>

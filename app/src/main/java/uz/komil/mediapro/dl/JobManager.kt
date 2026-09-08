@@ -170,6 +170,7 @@ object JobManager {
                 savedUri = ok.uri,
                 fileName = ok.fileName,
                 sizeBytes = ok.sizeBytes,
+                durationSec = ok.durationSec,
                 progress = 100
             ),
             keep = true

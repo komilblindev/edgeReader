@@ -1,6 +1,8 @@
 package uz.komil.mediapro.ui.screen
 
 import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.webkit.WebResourceRequest
@@ -572,6 +574,7 @@ private fun MediaCard(
     onRecord: () -> Unit,
     onStopRecord: () -> Unit
 ) {
+    val ctx = LocalContext.current
     Card(modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)) {
         Column(Modifier.padding(horizontal = 10.dp, vertical = 6.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -590,6 +593,21 @@ private fun MediaCard(
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.padding(start = 8.dp).weight(1f)
                 )
+                // Copy the link without downloading it.
+                val copyStr = stringResource(R.string.brw_copy)
+                TextButton(
+                    onClick = {
+                        val cm = ctx.getSystemService(android.content.Context.CLIPBOARD_SERVICE)
+                            as? ClipboardManager
+                        cm?.setPrimaryClip(ClipData.newPlainText("media-url", m.url))
+                        shortToast(ctx, ctx.getString(R.string.dl_copied))
+                    },
+                    modifier = Modifier.semantics {
+                        contentDescription = "$copyStr: ${m.url}"
+                    }
+                ) {
+                    Text(copyStr, maxLines = 1)
+                }
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -657,7 +675,7 @@ private fun ExtDialog(
     audioEx.add("MP3" to "mp3")
     audioEx.add("M4A" to "m4a")
     val choices = if (m.kind == MediaEngine.Kind.HLS || m.kind == MediaEngine.Kind.DASH) {
-        listOf("MP4" to "mp4", "MKV" to "mkv", "MP3" to "mp3", "M4A" to "m4a")
+        listOf("MP4" to "mp4", "TS" to "ts", "MKV" to "mkv", "MP3" to "mp3", "M4A" to "m4a")
     } else audioEx
 
     AlertDialog(
@@ -929,7 +947,7 @@ private fun RecordDialog(
 ) {
     var fileName by remember { mutableStateOf(baseName(target.url)) }
     var selectedExt by remember { mutableStateOf("mp4") }
-    val formats = listOf("MP4" to "mp4", "MKV" to "mkv", "MP3 (Audio)" to "mp3")
+    val formats = listOf("MP4" to "mp4", "TS" to "ts", "MKV" to "mkv", "MP3 (Audio)" to "mp3")
 
     var selectedDurationSec by remember { mutableStateOf(0L) }
     var timeText by remember { mutableStateOf("") }

@@ -72,6 +72,7 @@
 
     <!-- ============ Browser ============ -->
     <string name="brw_hint">Введите или вставьте URL</string>
+    <string name="brw_copy">Копировать</string>
     <string name="brw_open">Перейти</string>
     <string name="brw_back">Назад</string>
     <string name="brw_forward">Вперёд</string>

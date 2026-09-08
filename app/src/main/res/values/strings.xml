@@ -72,6 +72,7 @@
 
     <!-- ============ Browser ============ -->
     <string name="brw_hint">Type or paste a URL</string>
+    <string name="brw_copy">Copy</string>
     <string name="brw_open">Go</string>
     <string name="brw_back">Back</string>
     <string name="brw_forward">Forward</string>

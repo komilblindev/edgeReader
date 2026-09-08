@@ -20,7 +20,12 @@ import java.util.concurrent.atomic.AtomicBoolean
 object Dl {
 
     sealed class DlResult {
-        data class Ok(val uri: String, val fileName: String, val sizeBytes: Long) : DlResult()
+        data class Ok(
+            val uri: String,
+            val fileName: String,
+            val sizeBytes: Long,
+            val durationSec: Long = 0L // play time of the finished local file, 0 = unknown
+        ) : DlResult()
         object Cancelled : DlResult()
         data class Err(val message: String) : DlResult()
     }
@@ -187,9 +192,10 @@ object Dl {
             val folder = folderFor(rec.kind)
             // Human-readable file name from the job title, kept unique on disk.
             val finalFile = destine(f, (rec.fileName.ifBlank { rec.title }).substringBeforeLast('.'))
+            val durSec = probeLocalDurationSec(finalFile)
             val uri = MediaSaver.save(c, finalFile, finalFile.name, folder)
             WorkDir.clean(c, f, finalFile)
-            DlResult.Ok(uri, finalFile.name, finalFile.length())
+            DlResult.Ok(uri, finalFile.name, finalFile.length(), durSec)
         } catch (t: Throwable) {
             WorkDir.clean(c, f)
             ErrorLog.e("Dl.saveDone", "save failed", t)
@@ -266,6 +272,16 @@ object Dl {
             val d = info?.mediaInformation?.duration?.toDoubleOrNull() ?: 0.0
             if (d > 0 && d < 3600 * 24) d else 0.0
         } catch (_: Exception) { 0.0 }
+    }
+
+    /** Probe play time (seconds) of a finished local file; 0 when unreadable. */
+    private fun probeLocalDurationSec(f: File): Long {
+        if (!f.exists() || f.length() == 0L) return 0L
+        return try {
+            val info = com.arthenica.ffmpegkit.FFprobeKit.getMediaInformation(f.absolutePath)
+            val d = info?.mediaInformation?.duration?.toDoubleOrNull() ?: 0.0
+            if (d > 0 && d < 3600 * 24) d.toLong() else 0L
+        } catch (_: Exception) { 0L }
     }
 
     fun folderFor(kind: OpKind): MediaFolder = when (kind) {
