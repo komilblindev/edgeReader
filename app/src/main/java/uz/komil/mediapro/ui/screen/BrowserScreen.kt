@@ -21,7 +21,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.*
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -203,8 +203,8 @@ fun BrowserScreen(
                 TextButton(
                     onClick = { wv?.goBack() },
                     enabled = canBack,
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = ctx.getString(R.string.brw_back)
+                    modifier = Modifier.semantics {
+                        contentDescription = ctx.getString(R.string.brw_back)
                     }
                 ) {
                     Text("←", fontSize = MaterialTheme.typography.titleMedium.fontSize)
@@ -212,8 +212,8 @@ fun BrowserScreen(
                 TextButton(
                     onClick = { wv?.goForward() },
                     enabled = canFwd,
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = ctx.getString(R.string.brw_forward)
+                    modifier = Modifier.semantics {
+                        contentDescription = ctx.getString(R.string.brw_forward)
                     }
                 ) {
                     Text("→", fontSize = MaterialTheme.typography.titleMedium.fontSize)
@@ -227,14 +227,14 @@ fun BrowserScreen(
                     textStyle = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
                         .weight(1f)
-                        .androidx.compose.ui.semantics.semantics {
-                            this.contentDescription = ctx.getString(R.string.brw_hint)
+                        .semantics {
+                            contentDescription = ctx.getString(R.string.brw_hint)
                         }
                 )
                 TextButton(
                     onClick = { go(urlText) },
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = ctx.getString(R.string.brw_open)
+                    modifier = Modifier.semantics {
+                        contentDescription = ctx.getString(R.string.brw_open)
                     }
                 ) { Text(stringResource(R.string.brw_open)) }
 
@@ -243,8 +243,8 @@ fun BrowserScreen(
                         adBlockEnabled = !adBlockEnabled
                         msg(if (adBlockEnabled) ctx.getString(R.string.brw_adblock_on) else ctx.getString(R.string.brw_adblock_off))
                     },
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = if (adBlockEnabled) ctx.getString(R.string.brw_adblock_on) else ctx.getString(R.string.brw_adblock_off)
+                    modifier = Modifier.semantics {
+                        contentDescription = if (adBlockEnabled) ctx.getString(R.string.brw_adblock_on) else ctx.getString(R.string.brw_adblock_off)
                     }
                 ) {
                     Text(if (adBlockEnabled) "🛡️" else "⚪")
@@ -252,8 +252,8 @@ fun BrowserScreen(
 
                 TextButton(
                     onClick = { showHistory = true },
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = ctx.getString(R.string.brw_history_title)
+                    modifier = Modifier.semantics {
+                        contentDescription = ctx.getString(R.string.brw_history_title)
                     }
                 ) {
                     Text("🕒")
@@ -467,11 +467,12 @@ private fun buildWebView(
     isAdBlockOn: () -> Boolean,
     onPageVisited: (String, String) -> Unit
 ): WebView {
-    return WebView(c).apply {
-        CookieManager.getInstance().apply {
-            setAcceptCookie(true)
-            setAcceptThirdPartyCookies(this@apply, true)
-        }
+    val wv = WebView(c)
+    CookieManager.getInstance().apply {
+        setAcceptCookie(true)
+        setAcceptThirdPartyCookies(wv, true)
+    }
+    return wv.apply {
 
         settings.apply {
             javaScriptEnabled = true
@@ -595,21 +596,25 @@ private fun MediaCard(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier.padding(top = 2.dp)
             ) {
+                val dlStr = stringResource(R.string.brw_download)
+                val qualityStr = stringResource(R.string.brw_quality)
+                val stopStr = stringResource(R.string.rec_stop_desc)
+                val recStr = stringResource(R.string.brw_record)
                 Button(
                     onClick = onDownload,
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = "${stringResource(R.string.brw_download)}: ${m.url}"
+                    modifier = Modifier.semantics {
+                        contentDescription = "$dlStr: ${m.url}"
                     }
                 ) {
-                    Text(stringResource(R.string.brw_download), maxLines = 1)
+                    Text(dlStr, maxLines = 1)
                 }
                 if (m.kind == MediaEngine.Kind.HLS || m.kind == MediaEngine.Kind.DASH) {
                     TextButton(
                         onClick = onQuality,
-                        modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                            this.contentDescription = "${stringResource(R.string.brw_quality)}: ${m.url}"
+                        modifier = Modifier.semantics {
+                            contentDescription = "$qualityStr: ${m.url}"
                         }
-                    ) { Text(stringResource(R.string.brw_quality)) }
+                    ) { Text(qualityStr) }
 
                     if (recordingJob != null) {
                         Button(
@@ -618,8 +623,8 @@ private fun MediaCard(
                                 containerColor = MaterialTheme.colorScheme.error,
                                 contentColor = MaterialTheme.colorScheme.onError
                             ),
-                            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = "${stringResource(R.string.rec_stop_desc)}: ${m.url}"
+                            modifier = Modifier.semantics {
+                                contentDescription = "$stopStr: ${m.url}"
                             }
                         ) {
                             Text(stringResource(R.string.rec_btn_stop), maxLines = 1)
@@ -627,10 +632,10 @@ private fun MediaCard(
                     } else {
                         TextButton(
                             onClick = onRecord,
-                            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = "${stringResource(R.string.brw_record)}: ${m.url}"
+                            modifier = Modifier.semantics {
+                                contentDescription = "$recStr: ${m.url}"
                             }
-                        ) { Text(stringResource(R.string.brw_record)) }
+                        ) { Text(recStr) }
                     }
                 }
             }
@@ -890,6 +895,7 @@ private fun ActiveRecordingsSection(
                             overflow = TextOverflow.Ellipsis
                         )
                     }
+                    val stopRecordStr = stringResource(R.string.rec_stop_desc)
                     Button(
                         onClick = { onStop(job.record.id) },
                         colors = ButtonDefaults.buttonColors(
@@ -898,8 +904,8 @@ private fun ActiveRecordingsSection(
                         ),
                         modifier = Modifier
                             .padding(start = 8.dp)
-                            .androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = "${stringResource(R.string.rec_stop_desc)}: ${job.record.title}"
+                            .semantics {
+                                contentDescription = "$stopRecordStr: ${job.record.title}"
                             }
                     ) {
                         Text(stringResource(R.string.rec_btn_stop), style = MaterialTheme.typography.labelMedium)
@@ -1182,7 +1188,7 @@ private fun HistoryDialog(
                                 TextButton(
                                     onClick = { onDelete(item.id) },
                                     modifier = Modifier.semantics {
-                                        this.contentDescription = "${ctx.getString(R.string.brw_delete_item)}: ${item.title}"
+                                        contentDescription = "${ctx.getString(R.string.brw_delete_item)}: ${item.title}"
                                     }
                                 ) {
                                     Text("✕")

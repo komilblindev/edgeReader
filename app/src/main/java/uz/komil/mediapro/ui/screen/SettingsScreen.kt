@@ -529,16 +529,17 @@ private fun ScheduledRecordingsCard(
                 }
             }
 
+            val addText = stringResource(R.string.set_sched_add)
             OutlinedButton(
                 onClick = onAddClick,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp)
                     .semantics {
-                        contentDescription = stringResource(R.string.set_sched_add)
+                        contentDescription = addText
                     }
             ) {
-                Text("+ " + stringResource(R.string.set_sched_add))
+                Text("+ $addText")
             }
         }
     }
@@ -997,20 +998,22 @@ private fun CacheCard(cacheSize: Long, onClear: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                val cacheLabel = stringResource(R.string.set_cache_size, sizeText)
+                val clearLabel = stringResource(R.string.set_cache_clean_btn)
                 Text(
-                    stringResource(R.string.set_cache_size, sizeText),
+                    cacheLabel,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.semantics {
-                        contentDescription = stringResource(R.string.set_cache_size, sizeText)
+                        contentDescription = cacheLabel
                     }
                 )
                 OutlinedButton(
                     onClick = onClear,
                     modifier = Modifier.semantics {
-                        contentDescription = stringResource(R.string.set_cache_clean_btn) + ", " + sizeText
+                        contentDescription = "$clearLabel, $sizeText"
                     }
                 ) {
-                    Text(stringResource(R.string.set_cache_clean_btn))
+                    Text(clearLabel)
                 }
             }
         }

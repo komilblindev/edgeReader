@@ -7,6 +7,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.ui.semantics.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -214,8 +216,8 @@ fun HmsStepper(
                     trailingIcon = {
                         IconButton(
                             onClick = { menuExpanded = !menuExpanded },
-                            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = "$label vaqtlar spiskasini ochish"
+                            modifier = Modifier.semantics {
+                                contentDescription = "$label vaqtlar spiskasini ochish"
                             }
                         ) {
                             Text(if (menuExpanded) "▲" else "▼", style = MaterialTheme.typography.bodyMedium)
@@ -223,8 +225,8 @@ fun HmsStepper(
                     },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .androidx.compose.ui.semantics.semantics {
-                            this.contentDescription = "$label: ${value.toClock()}"
+                        .semantics {
+                            contentDescription = "$label: ${value.toClock()}"
                         }
                 )
 
@@ -272,8 +274,8 @@ fun HmsStepper(
                                 onSet(clamp(Hms.fromMs(pMs)))
                                 menuExpanded = false
                             },
-                            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = pLabel
+                            modifier = Modifier.semantics {
+                                contentDescription = pLabel
                             }
                         )
                     }
@@ -286,8 +288,8 @@ fun HmsStepper(
                         val live = getCurrentMs?.invoke() ?: currentMs ?: 0L
                         onSet(clamp(Hms.fromMs(live)))
                     },
-                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                        this.contentDescription = "Pleerning joriy vaqtini o'rnatish"
+                    modifier = Modifier.semantics {
+                        contentDescription = "Pleerning joriy vaqtini o'rnatish"
                     }
                 ) {
                     Text("↺")
@@ -302,7 +304,7 @@ fun HmsStepper(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 2.dp)
-                    .androidx.compose.foundation.horizontalScroll(androidx.compose.foundation.rememberScrollState())
+                    .horizontalScroll(rememberScrollState())
             ) {
                 val chips = listOf(
                     "Boshi" to 0L,
@@ -319,8 +321,8 @@ fun HmsStepper(
                         label = { Text(cLabel, fontSize = 11.sp) },
                         modifier = Modifier
                             .height(30.dp)
-                            .androidx.compose.ui.semantics.semantics {
-                                this.contentDescription = "$cLabel (${Hms.fromMs(cMs).toClock()})"
+                            .semantics {
+                                contentDescription = "$cLabel (${Hms.fromMs(cMs).toClock()})"
                             }
                     )
                 }
@@ -342,7 +344,7 @@ fun HmsStepper(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 4.dp)
-                .androidx.compose.foundation.horizontalScroll(androidx.compose.foundation.rememberScrollState())
+                .horizontalScroll(rememberScrollState())
         ) {
             steps.forEach { (lab, delta, desc) ->
                 OutlinedButton(
@@ -350,13 +352,13 @@ fun HmsStepper(
                         val base = if (value == Hms.ZERO && delta < 0) Hms.ZERO else clamp(value + Hms.fromMs(delta))
                         onSet(base)
                     },
-                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                    contentPadding = PaddingValues(
                         horizontal = 8.dp, vertical = 0.dp
                     ),
                     modifier = Modifier
                         .height(34.dp)
-                        .androidx.compose.ui.semantics.semantics {
-                            this.contentDescription = desc
+                        .semantics {
+                            contentDescription = desc
                         }
                 ) { Text(lab, fontSize = 12.sp) }
             }

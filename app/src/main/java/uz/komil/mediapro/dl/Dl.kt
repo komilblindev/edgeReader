@@ -219,16 +219,18 @@ object Dl {
         outExt: String,
         onUpdate: (MediaRecord) -> Unit
     ): DlResult {
+        var out: java.io.File? = null
         return try {
             val ext = if (outExt.isNotBlank()) outExt.lowercase()
             else sourceUrl.substringAfterLast('.').substringBefore('?').ifBlank { "mp4" }
-            val out = WorkDir.fresh(c, "dl_${rec.id}.$ext")
+            val outFile = WorkDir.fresh(c, "dl_${rec.id}.$ext")
+            out = outFile
             val resp = Http.get(sourceUrl)
             resp.use { r ->
                 if (!r.isSuccessful) return DlResult.Err("HTTP ${r.code}")
                 val total = r.body?.contentLength() ?: 0L
                 val body = r.body!!.byteStream()
-                val fos = FileOutputStream(out)
+                val fos = FileOutputStream(outFile)
                 val buf = ByteArray(128 * 1024)
                 var written = 0L
                 try {
@@ -242,7 +244,7 @@ object Dl {
                         }
                         if (shouldCancel(rec.id)) {
                             try { fos.close() } catch (_: Throwable) {}
-                            WorkDir.clean(c, out)
+                            WorkDir.clean(c, outFile)
                             return DlResult.Cancelled
                         }
                     }
@@ -250,9 +252,9 @@ object Dl {
                     try { fos.close() } catch (_: Throwable) {}
                 }
             }
-            saveDone(c, rec, out)
+            saveDone(c, rec, outFile)
         } catch (t: Throwable) {
-            WorkDir.clean(c, out)
+            out?.let { WorkDir.clean(c, it) }
             ErrorLog.e("Dl.plainFile", "download error", t)
             DlResult.Err(t.message ?: "download error")
         }

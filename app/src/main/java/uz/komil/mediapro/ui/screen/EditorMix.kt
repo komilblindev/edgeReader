@@ -25,6 +25,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -103,8 +104,8 @@ fun MixScreen(
                     player?.pause()
                     onBack()
                 },
-                modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                    this.contentDescription = "Orqaga / Back"
+                modifier = Modifier.semantics {
+                    contentDescription = "Orqaga / Back"
                 }
             ) { Text("←") }
             Text(stringResource(R.string.ed_op_mix), style = MaterialTheme.typography.titleLarge)
@@ -174,9 +175,9 @@ private fun VolSlider(label: String, value: Int, onChange: (Int) -> Unit) {
             onValueChange = { onChange(it.toInt()) },
             valueRange = 0f..200f,
             steps = 19,
-            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                this.contentDescription = "$label: $value foiz"
-                this.stateDescription = "$value%"
+            modifier = Modifier.semantics {
+                contentDescription = "$label: $value foiz"
+                stateDescription = "$value%"
             }
         )
     }

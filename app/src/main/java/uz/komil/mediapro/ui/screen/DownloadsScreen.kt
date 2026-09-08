@@ -29,6 +29,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -127,8 +128,8 @@ private fun DownloadRow(
                         Text(
                             (if (isRecording) stringResource(R.string.rec_active_banner) else stringResource(R.string.dl_running)) + " $progressLabel",
                             style = MaterialTheme.typography.labelMedium,
-                            modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                this.stateDescription = progressLabel
+                            modifier = Modifier.semantics {
+                                stateDescription = progressLabel
                             }
                         )
                         if (isRecording) {
@@ -140,8 +141,8 @@ private fun DownloadRow(
                                 ),
                                 modifier = Modifier
                                     .padding(start = 8.dp)
-                                    .androidx.compose.ui.semantics.semantics {
-                                        this.contentDescription = "${context.getString(R.string.rec_stop_desc)}: $title"
+                                    .semantics {
+                                        contentDescription = "${context.getString(R.string.rec_stop_desc)}: $title"
                                     }
                             ) {
                                 Text(stringResource(R.string.rec_btn_stop), style = MaterialTheme.typography.labelMedium)
@@ -151,8 +152,8 @@ private fun DownloadRow(
                                 onClick = onCancel,
                                 modifier = Modifier
                                     .padding(start = 8.dp)
-                                    .androidx.compose.ui.semantics.semantics {
-                                        this.contentDescription = "${context.getString(R.string.dl_cancel)}: $title"
+                                    .semantics {
+                                        contentDescription = "${context.getString(R.string.dl_cancel)}: $title"
                                     }
                             ) {
                                 Text(stringResource(R.string.dl_cancel))
@@ -163,10 +164,10 @@ private fun DownloadRow(
                         progress = { progress / 100f },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .androidx.compose.ui.semantics.semantics {
-                                this.progressBarRangeInfo = androidx.compose.ui.semantics.ProgressBarRangeInfo(progress / 100f, 0f..1f)
-                                this.stateDescription = progressLabel
-                                this.contentDescription = "$title: $progressLabel"
+                            .semantics {
+                                progressBarRangeInfo = ProgressBarRangeInfo(progress / 100f, 0f..1f)
+                                stateDescription = progressLabel
+                                contentDescription = "$title: $progressLabel"
                             }
                     )
                 }
@@ -180,16 +181,16 @@ private fun DownloadRow(
                         Row(horizontalArrangement = Arrangement.spacedBy(4.dp), modifier = Modifier.padding(top = 4.dp)) {
                             TextButton(
                                 onClick = { openUri(context, uri, fileName) },
-                                modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                    this.contentDescription = "${context.getString(R.string.dl_open)}: $fileName"
+                                modifier = Modifier.semantics {
+                                    contentDescription = "${context.getString(R.string.dl_open)}: $fileName"
                                 }
                             ) {
                                 Text(stringResource(R.string.dl_open))
                             }
                             TextButton(
                                 onClick = { shareUri(context, uri, fileName, title) },
-                                modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                    this.contentDescription = "${context.getString(R.string.dl_share)}: $fileName"
+                                modifier = Modifier.semantics {
+                                    contentDescription = "${context.getString(R.string.dl_share)}: $fileName"
                                 }
                             ) {
                                 Text(stringResource(R.string.dl_share))
@@ -197,8 +198,8 @@ private fun DownloadRow(
                             if (sourceUrl.startsWith("http")) {
                                 TextButton(
                                     onClick = { copyLink(context, sourceUrl) },
-                                    modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                                        this.contentDescription = "${context.getString(R.string.dl_copy)}: $title"
+                                    modifier = Modifier.semantics {
+                                        contentDescription = "${context.getString(R.string.dl_copy)}: $title"
                                     }
                                 ) {
                                     Text(stringResource(R.string.dl_copy))

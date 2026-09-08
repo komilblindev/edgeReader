@@ -32,6 +32,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -452,8 +453,8 @@ private fun EditorScaffold(
                     player?.pause()
                     onBack()
                 },
-                modifier = Modifier.androidx.compose.ui.semantics.semantics {
-                    this.contentDescription = "Orqaga / Back"
+                modifier = Modifier.semantics {
+                    contentDescription = "Orqaga / Back"
                 }
             ) { Text("←") }
             Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
